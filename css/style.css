@@ -1,0 +1,169 @@
+
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #d4e8ff;
+    color: black;
+    line-height: 1.6;
+}
+
+.header {
+    display: block;
+    background: linear-gradient(135deg, #0a2a43, #1e6096);
+    color: white;
+    text-align: center;
+    padding: 20px 20px 5px;
+    grid-template-columns: 1fr 1fr 1fr;   /* 3 kolom sama besar */
+
+    /* Gunakan flexbox */
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Kontainer logo agar sejajar kiri & kanan */
+.header .logo-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Logo */
+.logo-desa,
+.logo-daerah {
+    width: 120px;
+    height: auto;
+    position: relative;
+}
+
+.header h1 {
+    font-size: 30px;
+    text-align: justify;
+    letter-spacing: 2px;
+    margin: auto;
+}
+
+/* Responsif */
+@media (max-width: 100px) {
+    .logo-desa,
+    .logo-daerah {
+        width: 75px;
+    }
+}
+
+.menu-bar {
+    margin-top: 20px;
+    padding: 1px;
+}
+
+.menu-bar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.menu-bar ul li {
+    position: relative;
+}
+
+.menu-bar ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 17px;
+    transition: 0.3s;
+    padding: 5px 5px 5px;
+    border-radius: 8px;
+    margin: auto;
+}
+
+.menu-bar ul li a:hover {
+    background: #ffd369;
+    color: #0a2a43;
+}
+
+.profiles {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    display: block;
+    font-size: 1rem;
+    margin: auto;
+    padding: 0 20px;    
+}
+
+.main-identity a{
+    color: black;   
+   }
+   
+.main-identity {
+    text-decoration: none;
+    margin-top: 30px;
+    margin: 20px 10px;
+    font-size: 1rem;
+    text-align: justify;
+    align-items: start;
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.identity-row {
+    display: flex;
+    align-items: center;   /* ikon sejajar vertikal dengan teks */
+    gap: 8px;             /* jarak antara ikon dan teks */
+    margin-bottom: 5px;
+}
+
+.identity-row img.logo-png {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+.title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0a2a43;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 100px) {
+    .header h1 {
+        font-size: 1rem;
+    }
+
+    .menu-bar ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .profiles {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .main-identity {
+        font-size: 0.95rem;
+    }
+    
+    .container {
+        position: relative;
+    }
+}
