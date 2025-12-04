@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Website Resmi Desa Kalait">
-    <meta name="author" content="Di bantu oleh Dava">
     <title>Desa Kalait - Beranda</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -36,7 +35,6 @@
             </nav>
         </div>
     </header>
-
     <main class="container my-5 flex-grow-1">
         <section id="identitas">
             <div class="text-center mb-5">
@@ -71,7 +69,6 @@
                 </div>
             </div>
         </section>
-
         <section id="sejarah">
             <div class="text-center mb-4">
                 <h2 class="section-title"><i class="fas fa-history me-2"></i>Sejarah Desa</h2>
@@ -102,42 +99,40 @@
                 </div>
             </div>
         </section>
-
         <section id="kependudukan">
             <div class="text-center mb-4">
                 <h2 class="section-title"><i class="fas fa-users me-2"></i>Data Kependudukan</h2>
             </div>
             <div class="row g-4 mb-5 justify-content-center">
                 <div class="col-lg-4 col-md-4">
-                    <div class="card h-100 shadow-sm text-center stats-card">
+                    <div class="card h-100 shadow-sm text-center stats-card" id="cardTrigger" style="cursor: pointer;">
                         <div class="card-body">
                             <i class="fas fa-users stat-icon text-primary"></i>
                             <h3 class="stat-number">---</h3>
-                            <p class="stat-label">Total Penduduk</p>
+                            <p class="stat-label">Total Penduduk (Klik untuk Detail)</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4">
-                    <div class="card h-100 shadow-sm text-center stats-card">
+                    <div class="card h-100 shadow-sm text-center stats-card" id="maleTrigger" style="cursor: pointer;">
                         <div class="card-body">
                             <i class="fas fa-male stat-icon text-info"></i>
                             <h3 class="stat-number">---</h3>
-                            <p class="stat-label">Laki-laki</p>
+                            <p class="stat-label">Laki-laki (Klik Detail)</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4">
-                    <div class="card h-100 shadow-sm text-center stats-card">
+                    <div class="card h-100 shadow-sm text-center stats-card" id="femaleTrigger" style="cursor: pointer;">
                         <div class="card-body">
                             <i class="fas fa-female stat-icon text-danger"></i>
                             <h3 class="stat-number">---</h3>
-                            <p class="stat-label">Perempuan</p>
+                            <p class="stat-label">Perempuan (Klik Detail)</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
         <section id="pekerjaan">
             <div class="row g-4 mb-5">
                 <div class="col-12">
@@ -189,7 +184,6 @@
                 </div>
             </div>
         </section>
-
         <section id="pemerintahan">
             <div class="text-center mb-4">
                 <h2 class="section-title"><i class="fas fa-landmark me-2"></i>Pemerintahan Desa</h2>
@@ -202,7 +196,7 @@
                         </div>
                         <div class="card-body">
                             <ul class="list-unstyled mb-0">
-                                <li class="mb-2"><i class="fas fa-user-tie text-primary me-2"></i> Kepala Desa: <strong>---</strong></li>
+                                <li class="mb-2"><i class="fas fa-user-tie text-primary me-2"></i> Kepala Desa (Hukum Tua): <strong>Olce B. Tompoliu</strong></li>
                                 <li class="mb-2"><i class="fas fa-user-edit text-info me-2"></i> Sekretaris Desa: <strong>---</strong></li>
                                 <li class="mb-2"><i class="fas fa-wallet text-success me-2"></i> Bendahara Desa: <strong>---</strong></li>
                                 <li class="mb-2"><i class="fas fa-tasks text-warning me-2"></i> Kepala Urusan (Kaur): <strong>---</strong></li>
@@ -228,7 +222,6 @@
                 </div>
             </div>
         </section>
-
         <section id="lembaga">
             <div class="row g-4 mb-5">
                 <div class="col-12">
@@ -280,13 +273,89 @@
             </div>
         </section>
     </main>
-
     <a href="#top" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
-
     <footer class="footer bg-dark text-white text-center py-4 mt-auto">
         <div class="container"><p class="mb-0">&copy; 2025 Desa Kalait. All Rights Reserved.</p></div>
     </footer>
-
+<div id="infoModal" class="custom-modal-overlay">
+    <div class="custom-modal-content">
+        <span class="custom-close-btn" id="closeBtn">&times;</span>
+        
+        <h3 class="modal-header-text">Detail Kependudukan</h3>
+        <div class="jaga-section-title">Rincian per Jaga</div>
+        
+        <div class="jaga-grid">
+            <div class="jaga-box">
+                <span class="jaga-label">Jaga I</span>
+                <span class="jaga-value"></span>
+            </div>
+            <div class="jaga-box">
+                <span class="jaga-label">Jaga II</span>
+                <span class="jaga-value">92</span>
+            </div>
+            <div class="jaga-box">
+                <span class="jaga-label">Jaga III</span>
+                <span class="jaga-value">140</span>
+            </div>
+            <div class="jaga-box">
+                <span class="jaga-label">Jaga IV</span>
+                <span class="jaga-value">128</span>
+            </div>
+        </div>
+        </div>
+</div>
+<div id="maleModal" class="custom-modal-overlay">
+    <div class="custom-modal-content">
+        <span class="custom-close-btn close-male">&times;</span>
+        <h3 class="modal-header-text text-info"><i class="fas fa-male me-2"></i>Detail Laki-laki</h3>
+        
+        <div class="jaga-section-title">Rincian per Jaga</div>
+        <div class="jaga-grid">
+            <div class="jaga-box">
+                <span class="jaga-label">Jaga I</span>
+                <span class="jaga-value"></span>
+            </div>
+            <div class="jaga-box">
+                <span class="jaga-label">Jaga II</span>
+                <span class="jaga-value">48</span>
+            </div>
+            <div class="jaga-box">
+                <span class="jaga-label">Jaga III</span>
+                <span class="jaga-value">65</span>
+            </div>
+            <div class="jaga-box">
+                <span class="jaga-label">Jaga IV</span>
+                <span class="jaga-value">72</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="femaleModal" class="custom-modal-overlay">
+    <div class="custom-modal-content">
+        <span class="custom-close-btn close-female">&times;</span>
+        <h3 class="modal-header-text text-danger"><i class="fas fa-female me-2"></i>Detail Perempuan</h3>
+        
+        <div class="jaga-section-title">Rincian per Jaga</div>
+        <div class="jaga-grid">
+            <div class="jaga-box">
+                <span class="jaga-label">Jaga I</span>
+                <span class="jaga-value"></span>
+            </div>
+            <div class="jaga-box">
+                <span class="jaga-label">Jaga II</span>
+                <span class="jaga-value">44</span>
+            </div>
+            <div class="jaga-box">
+                <span class="jaga-label">Jaga III</span>
+                <span class="jaga-value">75</span>
+            </div>
+            <div class="jaga-box">
+                <span class="jaga-label">Jaga IV</span>
+                <span class="jaga-value">56</span>
+            </div>
+        </div>
+    </div>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>

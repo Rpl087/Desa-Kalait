@@ -22,9 +22,22 @@ body {
 .header {
     background: #1a472a;
     color: white;
-    padding: 20px 0;
+    padding: 10px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030; /* Di atas elemen lain (termasuk modal) */
+    transition: transform 0.3s ease-in-out; /* Animasi halus saat naik/turun */
 }
+
+.header-hidden {
+    transform: translateY(-100%); /* Geser header ke atas sampai hilang */
+    box-shadow: none;
+    transition: transform 0.3s ease-in-out;
+}
+
 
 .logo-wrapper {
     padding: 15px 20px !important;
@@ -45,7 +58,6 @@ body {
 
 .navbar {
     padding: 0;
-    background: #0d3b1f;
     margin-top: 10px;
 }
 
@@ -63,6 +75,7 @@ body {
 .nav-link:hover {
     background: #0a2f18 !important;
     color: #ffd700 !important;
+    border-radius: 7px;
 }
 
 .navbar-toggler {
@@ -119,12 +132,13 @@ section {
 }
 
 .card:hover {
-    transform: translateY(-2px);
+    transform: translateY(-6px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .card-body {
     padding: 25px;
+    box-shadow: 0 2px 5px #b1aeae;
 }
 
 .card-title {
@@ -140,7 +154,7 @@ section {
 
 .card-text {
     color: #555;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.8;
 }
 
@@ -250,10 +264,11 @@ section {
 
 @media (max-width: 991px) {
     main.container {
-        padding: 30px 20px !important;
+        padding: 10px 20px !important;
     }
     .card-body {
         padding: 20px;
+        box-shadow: 0 2px 4px #b1aeae;
     }
     .section-title {
         font-size: 20px;
@@ -261,8 +276,8 @@ section {
     .navbar-collapse {
         background: rgba(13, 59, 31, 0.95);
         backdrop-filter: blur(10px);
-        margin-top: 15px;
-        border-radius: 15px;
+        margin-top: 10px;
+        border-radius: 13px;
         padding: 15px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
         border: 1px solid rgba(255, 255, 255, 0.1);
@@ -318,6 +333,7 @@ section {
     }
     .card-body {
         padding: 18px;
+        box-shadow: 0 2px 4px #b1aeae;
     }
     .card-header {
         padding: 12px 18px;
@@ -355,6 +371,7 @@ section {
     }
     .card-body {
         padding: 15px;
+        box-shadow: 0 2px 3px #b1aeae;
     }
     .stat-icon {
         font-size: 1.8rem;
@@ -366,4 +383,137 @@ section {
         padding: 10px 14px !important;
         font-size: 13px;
     }
+}
+
+/* === STYLE TAMBAHAN UNTUK MODAL POP-UP === */
+
+/* Overlay Gelap di Belakang */
+.custom-modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 9999; /* Di atas navbar bootstrap */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px); /* Efek blur */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Kotak Konten Modal */
+.custom-modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 350px; /* Ukuran maksimal agar rapi */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    position: relative;
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid #fff;
+}
+
+/* Animasi Muncul */
+@keyframes popIn {
+    from {transform: scale(0.8); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+/* Tombol Close (X) */
+.custom-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+    line-height: 1;
+    padding: 5px;
+}
+
+.custom-close-btn:hover {
+    color: #dc3545; /* Merah bootstrap */
+}
+
+/* Styling Text di dalam Modal */
+.modal-header-text {
+    margin-top: 0;
+    color: #1a472a; /* Warna hijau tema desa */
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 16px;
+    color: #333;
+}
+
+.detail-row.total {
+    margin-top: 15px;
+    border-top: 2px solid #1a472a;
+    border-bottom: none;
+    font-weight: bold;
+    color: #1a472a;
+    font-size: 18px;
+}
+
+/* === STYLE UNTUK BOX JAGA (TAMBAHAN BARU) === */
+
+.jaga-section-title {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    position: relative;
+}
+
+
+/* Grid Layout 2x2 */
+.jaga-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Membagi menjadi 2 kolom */
+    gap: 10px; /* Jarak antar kotak */
+}
+
+/* Desain Kotak Jaga */
+.jaga-box {
+    background-color: #f8f9fa; /* Abu-abu sangat muda */
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.2s;
+}
+
+.jaga-box:hover {
+    background-color: #e8f5e9; /* Sedikit hijau saat di-hover */
+    border-color: #c3e6cb;
+}
+
+.jaga-label {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.jaga-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a472a; /* Warna hijau tema */
 }
