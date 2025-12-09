@@ -440,7 +440,7 @@ section {
 
     .nav-link:hover,
     .nav-link:active {
-        background: rgba(255, 215, 0, 0.15) !important;
+        background: rgba(255, 217, 0, 0.055) !important;
         color: var(--accent-color) !important;
     }
 
