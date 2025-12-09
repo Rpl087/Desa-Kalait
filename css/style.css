@@ -189,16 +189,9 @@ section {
 
 .lembaga-item {
     padding: 25px 15px;
-    border: 1px solid #e8e8e8;
-    border-radius: 8px;
     background: #fafafa;
     transition: all 0.2s ease;
     height: 100%;
-}
-
-.lembaga-item:hover {
-    background: #f0f0f0;
-    border-color: #d0d0d0;
 }
 
 .lembaga-item i {
@@ -459,7 +452,7 @@ section {
 
     .row:has(.card-potensi-grid) {
         --bs-gutter-x: 0;
-        padding: 0 12px 0 20px;
+        padding: 0 15px 0 15px;
     }
 
     .col-12:has(.card-potensi-grid),
