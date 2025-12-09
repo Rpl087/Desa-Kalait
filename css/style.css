@@ -1,8 +1,11 @@
-:root {
-    --primary-color: #1a472a;
-    --secondary-color: #0d3b1f;
-    --accent-color: #ffd700;
-    --bg-light: #e8f3fd;
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
+   :root {
+    --primary-color: #1a472a;    /* Hijau Tua Desa */
+    --secondary-color: #0d3b1f;  /* Hijau Lebih Gelap */
+    --accent-color: #ffd700;     /* Kuning Emas */
+    --bg-light: #e8f3fd;         /* Background Halaman */
     --text-dark: #333;
     --text-muted: #666;
     --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -27,6 +30,9 @@ body {
     height: 100%;
 }
 
+/* =========================================
+   2. HEADER & NAVIGATION
+   ========================================= */
 .header {
     background: var(--primary-color);
     color: white;
@@ -62,6 +68,7 @@ body {
     margin-top: 8px;
 }
 
+/* Navbar */
 .navbar {
     padding: 0;
     margin-top: 10px;
@@ -97,14 +104,17 @@ body {
     transform: scale(1.05);
 }
 
+/* =========================================
+   3. MAIN LAYOUT & SECTIONS
+   ========================================= */
 main.container {
     padding: 40px 30px !important;
     max-width: 1200px;
-    margin-top: 180px;
+    margin-top: 180px; /* Spacer untuk fixed header */
 }
 
 section {
-    scroll-margin-top: 160px;
+    scroll-margin-top: 160px; /* Jarak scroll agar tidak tertutup header */
 }
 
 .section-title {
@@ -121,6 +131,9 @@ section {
     margin-bottom: 30px;
 }
 
+/* =========================================
+   4. COMPONENTS: CARDS
+   ========================================= */
 .card {
     border: 1px solid #e0e0e0;
     border-radius: 8px;
@@ -146,7 +159,7 @@ section {
     border-radius: 8px 8px 0 0 !important;
 }
 
-.card-title,
+.card-title, 
 .card-title a {
     color: var(--primary-color);
     font-weight: 600;
@@ -161,6 +174,7 @@ section {
     line-height: 1.8;
 }
 
+/* Stats Cards */
 .stats-card {
     cursor: pointer;
 }
@@ -187,6 +201,7 @@ section {
     margin-top: 5px;
 }
 
+/* Lembaga Grid Items */
 .lembaga-item {
     padding: 25px 15px;
     border: 1px solid #e8e8e8;
@@ -216,34 +231,39 @@ section {
     padding: 8px 0;
 }
 
+/* =========================================
+   5. COMPONENTS: POTENSI DESA (Grid Images & Video)
+   ========================================= */
 .card-potensi-grid {
     border-radius: 15px;
     height: 250px;
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: #333;
+    background-color: #333; /* Warna dasar jika video loading */
 }
 
 .card-potensi-grid:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
+/* --- LOGIKA VIDEO BACKGROUND --- */
 .card-potensi-grid video.bg-video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    z-index: 0;
+    object-fit: cover; /* Video akan mengisi kotak tanpa gepeng */
+    z-index: 0; /* Posisi di paling belakang */
 }
 
+/* Konten Teks (Harus di atas video) */
 .potensi-content {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.3); /* Overlay gelap agar teks terbaca */
     width: 100%;
     height: 100%;
     display: flex;
@@ -254,9 +274,11 @@ section {
     text-align: center;
     padding: 20px;
     transition: background 0.3s;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-    position: relative;
-    z-index: 1;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    
+    /* PENTING: Agar teks berada di ATAS video */
+    position: relative; 
+    z-index: 1; 
 }
 
 .card-potensi-grid:hover .potensi-content {
@@ -264,6 +286,22 @@ section {
     color: var(--accent-color);
 }
 
+/* --- BACKGROUND IMAGE (Untuk yang bukan Video) --- */
+.bg-potensi-3 { 
+    background-image: url('https://images.unsplash.com/photo-1545468860-71b585c83288?q=80&w=1000&auto=format&fit=crop'); 
+    background-size: cover;
+    background-position: center;
+}
+
+.bg-potensi-4 { 
+    background-image: url('https://images.unsplash.com/photo-1472851294608-41524b43640b?q=80&w=1000&auto=format&fit=crop'); 
+    background-size: cover;
+    background-position: center;
+}
+
+/* =========================================
+   6. COMPONENTS: MODALS
+   ========================================= */
 .custom-modal-overlay {
     display: none;
     position: fixed;
@@ -272,7 +310,7 @@ section {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0,0,0,0.6);
     backdrop-filter: blur(4px);
     align-items: center;
     justify-content: center;
@@ -284,26 +322,20 @@ section {
     border-radius: 12px;
     width: 90%;
     max-width: 380px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
     position: relative;
     animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+/* Modifier: Modal Lebar (Sejarah) */
 .custom-modal-content.wide-modal {
     max-width: 800px !important;
-    width: 95%;
+    width: 95%; /* Agar tetap rapi di layar HP kecil */
 }
 
 @keyframes popIn {
-    from {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
 .custom-close-btn {
@@ -318,9 +350,7 @@ section {
     padding: 5px;
 }
 
-.custom-close-btn:hover {
-    color: #dc3545;
-}
+.custom-close-btn:hover { color: #dc3545; }
 
 .modal-header-text {
     margin-top: 0;
@@ -330,6 +360,7 @@ section {
     margin-bottom: 15px;
 }
 
+/* Jaga Grid */
 .jaga-section-title {
     margin: 20px 0 10px;
     font-size: 14px;
@@ -374,6 +405,9 @@ section {
     color: var(--primary-color);
 }
 
+/* =========================================
+   7. FOOTER & UTILITIES
+   ========================================= */
 .footer {
     background: var(--primary-color);
     color: white;
@@ -413,93 +447,40 @@ section {
     color: var(--accent-color);
 }
 
+/* =========================================
+   8. RESPONSIVE MEDIA QUERIES
+   ========================================= */
 @media (max-width: 991px) {
     main.container {
         padding: 10px 20px !important;
         margin-top: 140px;
     }
-
+    
     .navbar-collapse {
-        background: var(--secondary-color);
+        background: rgba(13, 59, 31, 0.95);
+        backdrop-filter: blur(10px);
         margin-top: 10px;
-        border-radius: 10px;
-        padding: 10px 5px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        border-radius: 13px;
+        padding: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
     }
 
-    .navbar-nav {
-        padding: 0;
-    }
-
-    .nav-item {
-        text-align: center;
-    }
-
-    .nav-link {
-        padding: 10px 15px !important;
-        font-size: 13px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .nav-item:last-child .nav-link {
-        border-bottom: none;
-    }
-
-    .nav-link:hover,
-    .nav-link:active {
+    .nav-link:hover, .nav-link:active {
         background: rgba(255, 215, 0, 0.15) !important;
         color: var(--accent-color) !important;
-    }
-
-    .card-potensi-grid {
-        width: 100%;
-        max-width: 90%;
-        height: 220px;
-    }
-
-    .row:has(.card-potensi-grid) {
-        --bs-gutter-x: 0;
-        padding: 0 12px 0 20px;
-    }
-
-    .col-12:has(.card-potensi-grid),
-    .col-lg-5:has(.card-potensi-grid),
-    .col-md-6:has(.card-potensi-grid) {
-        display: flex;
-        justify-content: center;
-        padding: 0;
-        margin-bottom: 1rem;
+        padding-left: 25px !important;
     }
 }
 
 @media (max-width: 768px) {
-    .header h1 {
-        font-size: 22px;
-    }
-
-    .subtitle {
-        font-size: 13px;
-    }
-
-    .stat-number {
-        font-size: 1.6rem;
-    }
-
-    .section-title {
-        font-size: 18px;
-    }
+    .header h1 { font-size: 22px; }
+    .subtitle { font-size: 13px; }
+    .stat-number { font-size: 1.6rem; }
+    .section-title { font-size: 18px; }
 }
 
 @media (max-width: 576px) {
-    main.container {
-        padding: 20px 12px !important;
-    }
-
-    .header h1 {
-        font-size: 20px;
-    }
-
-    .stat-number {
-        font-size: 1.4rem;
-    }
+    main.container { padding: 20px 12px !important; }
+    .header h1 { font-size: 20px; }
+    .stat-number { font-size: 1.4rem; }
 }

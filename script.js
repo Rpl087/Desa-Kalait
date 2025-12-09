@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    /* =========================================
+       1. HEADER HIDE/SHOW ON SCROLL
+       ========================================= */
     const header = document.querySelector('.header');
     let lastScrollTop = 0;
 
@@ -16,6 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    /* =========================================
+       2. TOMBOL BACK TO TOP
+       ========================================= */
     const backToTop = document.querySelector('.back-to-top');
 
     if (backToTop) {
@@ -33,6 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    /* =========================================
+       3. LOGIKA MODAL POP-UP
+       ========================================= */
+    
     function initModal(triggerId, modalId) {
         const trigger = document.getElementById(triggerId);
         const modal = document.getElementById(modalId);
@@ -43,13 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const closeModal = () => {
             modal.style.display = "none";
-            document.body.style.overflow = "";
+            document.body.style.overflow = ""; 
         };
 
         trigger.addEventListener('click', (e) => {
-            e.preventDefault();
+            e.preventDefault(); 
             modal.style.display = "flex";
-            document.body.style.overflow = "hidden";
+            document.body.style.overflow = "hidden"; 
         });
 
         if (closeBtn) {
@@ -63,26 +74,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    initModal('cardTrigger', 'infoModal');
-    initModal('maleTrigger', 'maleModal');
-    initModal('femaleTrigger', 'femaleModal');
-    initModal('asalUsulTrigger', 'asalUsulModal');
+    // --- Inisialisasi Modal ---
+    initModal('cardTrigger', 'infoModal');       // Total Penduduk
+    initModal('maleTrigger', 'maleModal');       // Laki-laki
+    initModal('femaleTrigger', 'femaleModal');   // Perempuan
+    initModal('asalUsulTrigger', 'asalUsulModal'); // Asal Usul
 
+    /* =========================================
+       4. LOGIKA VIDEO HOVER (Play/Pause)
+       ========================================= */
     const potensiCards = document.querySelectorAll('.card-potensi-grid');
 
     potensiCards.forEach(card => {
         const video = card.querySelector('video');
         if (video) {
+            // Pastikan video pause saat awal
             video.pause();
 
             card.addEventListener('mouseenter', () => {
-                video.play().catch(() => { });
+                video.play().catch(error => {
+                    // Penanganan error autoplay (opsional)
+                    console.log("Autoplay dicegah oleh browser:", error);
+                });
             });
 
             card.addEventListener('mouseleave', () => {
                 video.pause();
-                video.currentTime = 0;
+                video.currentTime = 0; // Opsi: Reset ke awal saat keluar
             });
         }
     });
+
 });
