@@ -79,11 +79,6 @@ h1, h2, h3, h4, h5, h6 {
     width: 60px;
     height: 60px;
     object-fit: contain;
-    border-radius: 8px;
-    background: white;
-    padding: 4px;
-    box-shadow: 0 0 15px rgba(217, 119, 6, 0.4), 0 4px 10px rgba(0, 0, 0, 0.2);
-    border: 2px solid var(--accent-color);
     transition: transform 0.3s ease;
 }
 
