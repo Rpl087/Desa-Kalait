@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Website Resmi Desa Kalait, Kecamatan Touluaan Selatan, Minahasa Tenggara">
+    <meta name="description" content="Website Resmi Desa Kalait, Kecamatan Touluaan Selatan, Kabupaten Minahasa Tenggara">
     <title>Desa Kalait - Touluaan Selatan, Kabupaten Minahasa Tenggara</title>
-    <link rel="icon" type="image" href="img/logo.jpg">
+    <link rel="icon" type="image/jpeg" href="img/logo.jpg">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -16,9 +16,12 @@
 <body class="d-flex flex-column min-vh-100">
     <header class="header" id="top">
         <div class="container-fluid">
-            <div class="logo-wrapper text-center py-3">
-                <h1 class="mb-0">DESA KALAIT</h1>
-                <p class="subtitle mb-0">Kecamatan Touluaan Selatan, Minahasa Tenggara</p>
+            <div class="header-brand-container">
+                <img src="img/logo.jpg" alt="Logo Minahasa Tenggara" class="header-logo">
+                <div class="brand-text">
+                    <h1>PEMERINTAH DESA KALAIT</h1>
+                    <p class="subtitle">Kecamatan Touluaan Selatan, Kabupaten Minahasa Tenggara</p>
+                </div>
             </div>
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="container-fluid">
@@ -30,17 +33,17 @@
                     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item"><a class="nav-link" href="#identitas"><i
-                                        class="fas fa-id-badge me-1"></i>Identitas</a></li>
+                                        class="fas fa-id-badge"></i>Identitas</a></li>
                             <li class="nav-item"><a class="nav-link" href="#sejarah"><i
-                                        class="fas fa-history me-1"></i>Sejarah</a></li>
+                                        class="fas fa-history"></i>Sejarah</a></li>
                             <li class="nav-item"><a class="nav-link" href="#kependudukan"><i
-                                        class="fas fa-users me-1"></i>Kependudukan</a></li>
+                                        class="fas fa-users"></i>Kependudukan</a></li>
                             <li class="nav-item"><a class="nav-link" href="#pekerjaan"><i
-                                        class="fas fa-briefcase me-1"></i>Pekerjaan</a></li>
+                                        class="fas fa-briefcase"></i>Pekerjaan</a></li>
                             <li class="nav-item"><a class="nav-link" href="#pemerintahan"><i
-                                        class="fas fa-landmark me-1"></i>Pemerintahan</a></li>
+                                        class="fas fa-landmark"></i>Pemerintahan</a></li>
                             <li class="nav-item"><a class="nav-link" href="#lembaga"><i
-                                        class="fas fa-handshake me-1"></i>Lembaga</a></li>
+                                        class="fas fa-handshake"></i>Lembaga</a></li>
                         </ul>
                     </div>
                 </div>
@@ -48,115 +51,145 @@
         </div>
     </header>
 
-    <main class="container my-5 flex-grow-1">
-        <section id="identitas">
-            <div class="text-center mb-5">
-                <h2 class="section-title"><i class="fas fa-id-badge me-2"></i>Identitas Desa</h2>
+    <main class="container flex-grow-1">
+        <!-- Section Identitas -->
+        <section id="identitas" class="mb-5">
+            <div class="text-center section-header">
+                <h2 class="section-title"><i class="fas fa-id-card text-warning me-2"></i>Identitas & Profil Desa</h2>
+                <p class="section-subtitle">Informasi mengenai geografis, balai desa, dan potensi komoditas Desa Kalait</p>
             </div>
+
             <div class="row g-4 mb-5">
-                <div class="col-12">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title"><i class="fas fa-map-marker-alt text-primary me-2"></i>Lokasi</h5>
-                            <p class="card-text">Desa Kalait, Kec. Touluaan Selatan, kode pos 95998, Minahasa Tenggara,
-                                Sulawesi Utara</p>
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body location-card">
+                            <div class="icon-box-circle">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <div>
+                                <h5 class="card-title">Lokasi Wilayah</h5>
+                                <p class="card-text">Desa Kalait, Kecamatan Touluaan Selatan, Kode Pos 95998, Kabupaten Minahasa Tenggara, Provinsi Sulawesi Utara</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title"><i class="fas fa-building text-primary me-2"></i>Balai Desa</h5>
-                            <p class="card-text">Kalait, Kec. Touluaan Selatan, Kab. Minahasa Tenggara, Sulawesi Utara
-                            </p>
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body location-card">
+                            <div class="icon-box-circle">
+                                <i class="fas fa-landmark"></i>
+                            </div>
+                            <div>
+                                <h5 class="card-title">Pusat Pelayanan Balai Desa</h5>
+                                <p class="card-text">Kantor Hukum Tua Desa Kalait, Kec. Touluaan Selatan, Kab. Minahasa Tenggara, Sulawesi Utara</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="row mb-5">
-                <div class="col-12 text-center mb-4">
-                    <h2 class="section-title"><i class="fas fa-leaf me-2"></i>Potensi Desa</h2>
+            <!-- Potensi Desa -->
+            <div class="row">
+                <div class="col-12 text-center section-header">
+                    <h3 class="section-title"><i class="fas fa-seedling text-warning me-2"></i>Potensi Keunggulan Desa</h3>
+                    <p class="section-subtitle">Aset alam dan ekonomi utama yang menggerakkan mata pencaharian warga Desa Kalait</p>
                 </div>
                 
-                <div class="row g-3 g-lg-4 justify-content-center">
-                    
-                    <div class="col-12 col-md-6 col-lg-3">
+                <div class="row g-4 justify-content-center">
+                    <div class="col-12 col-sm-6 col-lg-3">
                         <div class="card-potensi-grid">
                             <video class="bg-video" loop muted playsinline>
                                 <source src="img/pohon-kelapa.mp4" type="video/mp4">
                             </video>
                             <div class="potensi-content">
-                                <p class="medium fw-bold">Pohon Kelapa</p>
+                                <span class="potensi-badge"><i class="fas fa-leaf me-1"></i> Perkebunan</span>
+                                <h4 class="potensi-title">Pohon Kelapa</h4>
+                                <p class="potensi-subtext">Komoditas Utama Kelapa & Kopra</p>
                             </div>
                         </div>
                     </div>
     
-                    <div class="col-12 col-md-6 col-lg-3">
+                    <div class="col-12 col-sm-6 col-lg-3">
                         <div class="card-potensi-grid">
                             <video class="bg-video" loop muted playsinline>
                                 <source src="img/air-terjun.mp4" type="video/mp4">
                             </video>
                             <div class="potensi-content">
-                                <p class="medium fw-bold">Air Terjun</p>
+                                <span class="potensi-badge"><i class="fas fa-water me-1"></i> Wisata Alam</span>
+                                <h4 class="potensi-title">Air Terjun</h4>
+                                <p class="potensi-subtext">Sumber Daya Air & Pesona Alam</p>
                             </div>
                         </div>
                     </div>
     
-                    <div class="col-12 col-md-6 col-lg-3">
+                    <div class="col-12 col-sm-6 col-lg-3">
                         <div class="card-potensi-grid">
                             <video class="bg-video" loop muted playsinline>
                                 <source src="img/tromol.mp4" type="video/mp4">
                             </video>
                             <div class="potensi-content">
-                                <p class="medium fw-bold">Emas</p>
+                                <span class="potensi-badge"><i class="fas fa-gem me-1"></i> Pertambangan</span>
+                                <h4 class="potensi-title">Pengolahan Emas</h4>
+                                <p class="potensi-subtext">Sektor Pertambangan Tradisional</p>
                             </div>
                         </div>
                     </div>
     
-                    <div class="col-12 col-md-6 col-lg-3">
+                    <div class="col-12 col-sm-6 col-lg-3">
                         <div class="card-potensi-grid">
                             <video class="bg-video" loop muted playsinline>
                                 <source src="img/cap.mp4" type="video/mp4">
                             </video>
                             <div class="potensi-content">
-                                <p class="medium fw-bold">Minuman Tradisional</p>
+                                <span class="potensi-badge"><i class="fas fa-wine-glass-alt me-1"></i> Kuliner Lokal</span>
+                                <h4 class="potensi-title">Minuman Tradisional</h4>
+                                <p class="potensi-subtext">Kearifan Lokal Hasil Enau</p>
                             </div>
                         </div>
                     </div>
-    
                 </div>
             </div>
         </section>
 
-        <section id="sejarah">
-            <div class="text-center mb-4">
-                <h2 class="section-title"><i class="fas fa-history me-2"></i>Sejarah Desa</h2>
+        <!-- Section Sejarah -->
+        <section id="sejarah" class="mb-5">
+            <div class="text-center section-header">
+                <h2 class="section-title"><i class="fas fa-scroll text-warning me-2"></i>Sejarah Perintisan Desa</h2>
+                <p class="section-subtitle">Perjalanan panjang berdirinya Desa Kalait sejak tahun 1918</p>
             </div>
-            <div class="row mb-5">
+            <div class="row">
                 <div class="col-12">
                     <div class="card shadow-sm">
                         <div class="card-body">
                             <div class="row g-4 text-center justify-content-center">
                                 <div class="col-md-4" id="asalUsulTrigger" style="cursor: pointer;">
-                                    <div class="h-100 hover-shadow">
-                                        <i class="fas fa-pen-nib text-success fs-3 mb-3 d-block"></i>
-                                        <h6 class="fw-bold">Asal-Usul Nama</h6>
-                                        <p class="text-muted mb-0">Klik untuk baca sejarah</p>
+                                    <div class="p-3 h-100 rounded-3 border bg-light hover-shadow transition-all">
+                                        <div class="icon-box-circle mx-auto mb-3">
+                                            <i class="fas fa-book-open"></i>
+                                        </div>
+                                        <h5 class="fw-bold text-success mb-1">Asal-Usul Nama</h5>
+                                        <p class="text-muted small mb-2">Sejarah "Kalah Ingin Damai"</p>
+                                        <span class="badge bg-success text-white">Klik untuk Membaca Sejarah Lengkap <i class="fas fa-arrow-right ms-1"></i></span>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="p-2 h-100">
-                                        <i class="fas fa-calendar-alt text-info fs-3 mb-3 d-block"></i>
-                                        <h6 class="fw-bold">Tahun Berdiri</h6>
-                                        <p class="text-muted mb-0">1918</p>
+                                    <div class="p-3 h-100 rounded-3 border bg-light">
+                                        <div class="icon-box-circle mx-auto mb-3" style="background: rgba(2, 132, 199, 0.1); color: #0284C7;">
+                                            <i class="fas fa-calendar-check"></i>
+                                        </div>
+                                        <h5 class="fw-bold text-info mb-1">Tahun Pengesahan</h5>
+                                        <h4 class="stat-number my-1" style="color: #0284C7;">1918</h4>
+                                        <p class="text-muted small mb-0">Resmi Diakui Pemerintah</p>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="p-2 h-100">
-                                        <i class="fas fa-user-tie text-danger fs-3 mb-3 d-block"></i>
-                                        <h6 class="fw-bold">Tokoh Berpengaruh</h6>
-                                        <p class="text-muted mb-0">Abedneju Umboh</p>
+                                    <div class="p-3 h-100 rounded-3 border bg-light">
+                                        <div class="icon-box-circle mx-auto mb-3" style="background: rgba(217, 119, 6, 0.1); color: #D97706;">
+                                            <i class="fas fa-user-shield"></i>
+                                        </div>
+                                        <h5 class="fw-bold text-warning mb-1">Perintis Utama</h5>
+                                        <h5 class="fw-bold text-dark my-2">Abedneju Umboh</h5>
+                                        <p class="text-muted small mb-0">Hukum Tua Pertama (1918-1926)</p>
                                     </div>
                                 </div>
                             </div>
@@ -166,87 +199,114 @@
             </div>
         </section>
 
-        <section id="kependudukan">
-            <div class="text-center mb-4">
-                <h2 class="section-title"><i class="fas fa-users me-2"></i>Data Kependudukan</h2>
+        <!-- Section Kependudukan -->
+        <section id="kependudukan" class="mb-5">
+            <div class="text-center section-header">
+                <h2 class="section-title"><i class="fas fa-chart-pie text-warning me-2"></i>Data Demografi Warga</h2>
+                <p class="section-subtitle">Statistik jumlah penduduk dan pembagian wilayah berdasarkan Jaga</p>
             </div>
-            <div class="row g-4 mb-5 justify-content-center">
-                <div class="col-lg-4 col-md-4">
-                    <div class="card h-100 shadow-sm text-center stats-card" id="cardTrigger" role="button">
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 shadow-sm stats-card" id="cardTrigger" role="button">
                         <div class="card-body">
-                            <i class="fas fa-users stat-icon text-primary"></i>
-                            <h3 class="stat-number">456 Orang</h3>
-                            <p class="stat-label">Total Penduduk (Klik untuk Detail)</p>
+                            <div class="stat-icon-wrapper bg-primary-soft">
+                                <i class="fas fa-users stat-icon"></i>
+                            </div>
+                            <h3 class="stat-number">456</h3>
+                            <p class="stat-label mb-1">Total Jiwa Warga Desa</p>
+                            <span class="stat-hint"><i class="fas fa-chart-bar me-1"></i> Rincian Jaga I - IV</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="card h-100 shadow-sm text-center stats-card" id="maleTrigger" role="button">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 shadow-sm stats-card" id="maleTrigger" role="button">
                         <div class="card-body">
-                            <i class="fas fa-male stat-icon text-info"></i>
-                            <h3 class="stat-number">236 Orang</h3>
-                            <p class="stat-label">Laki-laki (Klik untuk Detail)</p>
+                            <div class="stat-icon-wrapper bg-info-soft">
+                                <i class="fas fa-mars stat-icon"></i>
+                            </div>
+                            <h3 class="stat-number" style="color: #0284C7;">236</h3>
+                            <p class="stat-label mb-1">Penduduk Laki-Laki</p>
+                            <span class="stat-hint" style="background: rgba(2, 132, 199, 0.1); color: #0284C7;"><i class="fas fa-mars me-1"></i> Detail per Jaga</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="card h-100 shadow-sm text-center stats-card" id="femaleTrigger" role="button">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 shadow-sm stats-card" id="femaleTrigger" role="button">
                         <div class="card-body">
-                            <i class="fas fa-female stat-icon text-danger"></i>
-                            <h3 class="stat-number">221 Orang</h3>
-                            <p class="stat-label">Perempuan (Klik untuk Detail)</p>
+                            <div class="stat-icon-wrapper bg-danger-soft">
+                                <i class="fas fa-venus stat-icon"></i>
+                            </div>
+                            <h3 class="stat-number" style="color: #E11D48;">221</h3>
+                            <p class="stat-label mb-1">Penduduk Perempuan</p>
+                            <span class="stat-hint" style="background: rgba(225, 29, 72, 0.1); color: #E11D48;"><i class="fas fa-venus me-1"></i> Detail per Jaga</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="pekerjaan">
-            <div class="row g-4 mb-5">
+        <!-- Section Pekerjaan -->
+        <section id="pekerjaan" class="mb-5">
+            <div class="row">
                 <div class="col-12">
                     <div class="card shadow-sm">
-                        <div class="card-header bg-primary text-white">
-                            <h5 class="mb-0"><i class="fas fa-briefcase me-2"></i>Pekerjaan Penduduk</h5>
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-briefcase me-2"></i>Mata Pencaharian & Profesi Penduduk</h5>
                         </div>
                         <div class="card-body">
                             <div class="row g-3">
                                 <div class="col-lg-4 col-md-6">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fas fa-tractor text-success fs-4 me-3"></i>
-                                        <div><strong>393 Orang</strong>
-                                            <p class="mb-0 text-muted">Petani</p>
+                                    <div class="pekerjaan-box d-flex align-items-center">
+                                        <div class="icon-box-circle me-3">
+                                            <i class="fas fa-tractor"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="stat-number text-success mb-0">393 <small class="fs-6 text-muted">Jiwa</small></h4>
+                                            <p class="mb-0 text-dark fw-bold">Petani / Pekebun</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-6">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fas fa-briefcase text-info fs-4 me-3"></i>
-                                        <div><strong>43 Orang</strong>
-                                            <p class="mb-0 text-muted">Wiraswasta</p>
+                                    <div class="pekerjaan-box d-flex align-items-center" style="border-left-color: #0284C7;">
+                                        <div class="icon-box-circle me-3" style="background: rgba(2, 132, 199, 0.1); color: #0284C7;">
+                                            <i class="fas fa-store"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="stat-number mb-0" style="color: #0284C7;">43 <small class="fs-6 text-muted">Jiwa</small></h4>
+                                            <p class="mb-0 text-dark fw-bold">Wiraswasta / Pedagang</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-6">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fas fa-user-shield text-primary fs-4 me-3"></i>
-                                        <div><strong>8 Orang</strong>
-                                            <p class="mb-0 text-muted">PNS/TNI/POLRI</p>
+                                    <div class="pekerjaan-box d-flex align-items-center" style="border-left-color: #D97706;">
+                                        <div class="icon-box-circle me-3" style="background: rgba(217, 119, 6, 0.1); color: #D97706;">
+                                            <i class="fas fa-graduation-cap"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="stat-number mb-0" style="color: #D97706;">83 <small class="fs-6 text-muted">Jiwa</small></h4>
+                                            <p class="mb-0 text-dark fw-bold">Pelajar / Mahasiswa</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-6">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fas fa-hard-hat text-warning fs-4 me-3"></i>
-                                        <div><strong>0 Orang</strong>
-                                            <p class="mb-0 text-muted">Buruh</p>
+                                    <div class="pekerjaan-box d-flex align-items-center" style="border-left-color: #E11D48;">
+                                        <div class="icon-box-circle me-3" style="background: rgba(225, 29, 72, 0.1); color: #E11D48;">
+                                            <i class="fas fa-user-shield"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="stat-number mb-0" style="color: #E11D48;">8 <small class="fs-6 text-muted">Jiwa</small></h4>
+                                            <p class="mb-0 text-dark fw-bold">PNS / TNI / POLRI</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-6">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fas fa-graduation-cap text-danger fs-4 me-3"></i>
-                                        <div><strong>83 Orang</strong>
-                                            <p class="mb-0 text-muted">Pelajar/Mahasiswa</p>
+                                    <div class="pekerjaan-box d-flex align-items-center" style="border-left-color: #64748B;">
+                                        <div class="icon-box-circle me-3" style="background: rgba(100, 116, 139, 0.1); color: #64748B;">
+                                            <i class="fas fa-hard-hat"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="stat-number text-muted mb-0">0 <small class="fs-6 text-muted">Jiwa</small></h4>
+                                            <p class="mb-0 text-dark fw-bold">Buruh Harian Lepas</p>
                                         </div>
                                     </div>
                                 </div>
@@ -257,64 +317,100 @@
             </div>
         </section>
 
-        <section id="pemerintahan">
-            <div class="text-center mb-4">
-                <h2 class="section-title"><i class="fas fa-landmark me-2"></i>Pemerintahan Desa</h2>
+        <!-- Section Pemerintahan -->
+        <section id="pemerintahan" class="mb-5">
+            <div class="text-center section-header">
+                <h2 class="section-title"><i class="fas fa-landmark text-warning me-2"></i>Struktur Pemerintahan Desa</h2>
+                <p class="section-subtitle">Susunan aparatur dan tata kelola Pemerintah Desa Kalait</p>
             </div>
-            <div class="row g-4 mb-5">
-                <div class="col-lg-6 col-12">
+            <div class="row g-4">
+                <div class="col-lg-7 col-12">
                     <div class="card h-100 shadow-sm">
-                        <div class="card-header bg-success text-white">
-                            <h5 class="mb-0"><i class="fas fa-sitemap me-2"></i>Struktur Organisasi</h5>
+                        <div class="card-header bg-success">
+                            <h5 class="mb-0"><i class="fas fa-sitemap me-2"></i>Struktur Aparatur Desa</h5>
                         </div>
                         <div class="card-body">
                             <ul class="list-unstyled mb-0">
-                                <li class="mb-2"><i class="fas fa-user-tie text-primary me-2"></i> Kepala Desa:
-                                    <strong>Olce B. Tompoliu</strong>
+                                <li class="p-2 mb-2 rounded bg-light border d-flex align-items-center justify-content-between">
+                                    <span><i class="fas fa-user-tie text-success me-2 fs-5"></i> <strong>Hukum Tua (Kepala Desa)</strong></span>
+                                    <span class="badge bg-success fs-6">Olce B. Tompoliu</span>
                                 </li>
-                                <li class="mb-2"><i class="fas fa-user-edit text-info me-2"></i> Sekretaris Desa:
-                                    <strong>Marni Rumengan</strong>
+                                <li class="p-2 mb-2 rounded bg-light border d-flex align-items-center justify-content-between">
+                                    <span><i class="fas fa-user-edit text-info me-2 fs-5"></i> Sekretaris Desa</span>
+                                    <strong class="text-dark">Marni Rumengan</strong>
                                 </li>
-                                <li class="mb-2"><i class="fas fa-wallet text-success me-2"></i> Bendahara Desa:
-                                    <strong>Ivana Tompoliu</strong>
+                                <li class="p-2 mb-2 rounded bg-light border d-flex align-items-center justify-content-between">
+                                    <span><i class="fas fa-wallet text-warning me-2 fs-5"></i> Bendahara Desa</span>
+                                    <strong class="text-dark">Ivana Tompoliu</strong>
                                 </li>
-                                <li class="mb-2"><i class="fas fa-tasks text-warning me-2"></i> Kepala Urusan:
-                                    <strong>Gryvit Karuh</strong>
+                                <li class="p-2 mb-2 rounded bg-light border d-flex align-items-center justify-content-between">
+                                    <span><i class="fas fa-tasks text-primary me-2 fs-5"></i> Kepala Urusan (Kaur)</span>
+                                    <strong class="text-dark">Gryvit Karuh</strong>
                                 </li>
-                                <li class="mb-0"><i class="fas fa-user-cog text-danger me-2"></i> Kepala Jaga 1: Raykal
-                                    Saroinsong</li>
-                                <li class="mb-0"><i class="fas fa-user-cog text-danger me-2"></i> Kepala Jaga 2: Stevi
-                                    Tompoliu</li>
-                                <li class="mb-0"><i class="fas fa-user-cog text-danger me-2"></i> Kepala Jaga 3: Jein
-                                    Somba</li>
-                                <li class="mb-0"><i class="fas fa-user-cog text-danger me-2"></i> Kepala Jaga 4: Harto
-                                    Karuh</li>
                             </ul>
+                            
+                            <hr class="my-3">
+                            <h6 class="fw-bold text-success mb-3"><i class="fas fa-users-cog me-2"></i>Jajaran Kepala Jaga (Kepala Dusun)</h6>
+                            <div class="row g-2">
+                                <div class="col-sm-6">
+                                    <div class="p-2 rounded border bg-white d-flex align-items-center">
+                                        <i class="fas fa-user-tag text-success me-2"></i>
+                                        <div><small class="text-muted d-block">Kepala Jaga 1</small><strong>Raykal Saroinsong</strong></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="p-2 rounded border bg-white d-flex align-items-center">
+                                        <i class="fas fa-user-tag text-success me-2"></i>
+                                        <div><small class="text-muted d-block">Kepala Jaga 2</small><strong>Stevi Tompoliu</strong></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="p-2 rounded border bg-white d-flex align-items-center">
+                                        <i class="fas fa-user-tag text-success me-2"></i>
+                                        <div><small class="text-muted d-block">Kepala Jaga 3</small><strong>Jein Somba</strong></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="p-2 rounded border bg-white d-flex align-items-center">
+                                        <i class="fas fa-user-tag text-success me-2"></i>
+                                        <div><small class="text-muted d-block">Kepala Jaga 4</small><strong>Harto Karuh</strong></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-12">
+
+                <div class="col-lg-5 col-12">
                     <div class="card h-100 shadow-sm">
-                        <div class="card-header bg-info text-white">
-                            <h5 class="mb-0"><i class="fas fa-users-cog me-2"></i>Jumlah Perangkat Desa</h5>
+                        <div class="card-header bg-info">
+                            <h5 class="mb-0"><i class="fas fa-users me-2"></i>Jumlah Perangkat Desa</h5>
                         </div>
-                        <div class="card-body">
-                            <div class="row text-center align-items-center h-100">
-                                <div class="col-6 mb-3">
-                                    <h5 class="text-primary mb-0">Total Perangkat</h5>
-                                    <small class="text-muted fw-bold">15 Orang</small>
-                                </div>
-                                <div class="col-6 mb-3">
-                                    <h5 class="text-success mb-0">Kepala Jaga</h5>
-                                    <small class="text-muted fw-bold">4 Orang</small>
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <div class="row text-center g-3">
+                                <div class="col-6">
+                                    <div class="p-3 rounded-3 border bg-light">
+                                        <h3 class="stat-number text-primary mb-1">15</h3>
+                                        <small class="text-muted fw-bold">Total Perangkat</small>
+                                    </div>
                                 </div>
                                 <div class="col-6">
-                                    <h5 class="text-info mb-0">Kepala Urusan</h5>
-                                    <small class="text-muted fw-bold">3 Orang</small>
+                                    <div class="p-3 rounded-3 border bg-light">
+                                        <h3 class="stat-number text-success mb-1">4</h3>
+                                        <small class="text-muted fw-bold">Kepala Jaga</small>
+                                    </div>
                                 </div>
                                 <div class="col-6">
-                                    <h5 class="text-warning mb-0">Staf</h5>
-                                    <small class="text-muted fw-bold">15 Orang</small>
+                                    <div class="p-3 rounded-3 border bg-light">
+                                        <h3 class="stat-number text-info mb-1">3</h3>
+                                        <small class="text-muted fw-bold">Kepala Urusan</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="p-3 rounded-3 border bg-light">
+                                        <h3 class="stat-number text-warning mb-1">15</h3>
+                                        <small class="text-muted fw-bold">Staf Pendukung</small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -323,74 +419,83 @@
             </div>
         </section>
 
-        <section id="lembaga">
-            <div class="row g-4 mb-5">
-                <div class="col-12">
-                    <div class="card shadow-sm">
-                        <div class="card-header bg-warning text-dark">
-                            <h5 class="mb-0"><i class="fas fa-handshake me-2"></i>Lembaga Kemasyarakatan</h5>
+        <!-- Section Lembaga Kemasyarakatan -->
+        <section id="lembaga" class="mb-5">
+            <div class="text-center section-header">
+                <h2 class="section-title"><i class="fas fa-hands-helping text-warning me-2"></i>Lembaga Kemasyarakatan</h2>
+                <p class="section-subtitle">Mitra strategis Pemerintah Desa dalam pembangunan dan pelayanan publik</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="lembaga-item">
+                        <div class="lembaga-icon-box">
+                            <i class="fas fa-gavel"></i>
                         </div>
-                        <div class="card-body">
-                            <div class="row g-3 justify-content-center">
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="lembaga-item text-center h-100">
-                                        <i class="fas fa-gavel text-primary fs-3"></i>
-                                        <h6 class="mt-2 mb-1">BPD</h6>
-                                        <small class="text-muted">Badan Permusyawaratan Desa</small>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="lembaga-item text-center h-100">
-                                        <i class="fas fa-hand-holding-heart text-danger fs-3"></i>
-                                        <h6 class="mt-2 mb-1">PKK</h6>
-                                        <small class="text-muted">Pemberdayaan Kesejahteraan Keluarga</small>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="lembaga-item text-center h-100">
-                                        <i class="fas fa-users text-success fs-3"></i>
-                                        <h6 class="mt-2 mb-1">Karang Taruna</h6>
-                                        <small class="text-muted">Organisasi Kepemudaan</small>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="lembaga-item text-center h-100">
-                                        <i class="fas fa-shield-alt text-warning fs-3"></i>
-                                        <h6 class="mt-2 mb-1">Kepala Jaga</h6>
-                                        <small class="text-muted">Keamanan dan Ketertiban</small>
-                                    </div>
-                                </div>
-                            </div>
+                        <h6>BPD</h6>
+                        <small class="text-muted">Badan Permusyawaratan Desa</small>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="lembaga-item">
+                        <div class="lembaga-icon-box" style="background: rgba(225, 29, 72, 0.1); color: #E11D48;">
+                            <i class="fas fa-hand-holding-heart"></i>
                         </div>
+                        <h6>PKK</h6>
+                        <small class="text-muted">Pemberdayaan Kesejahteraan Keluarga</small>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="lembaga-item">
+                        <div class="lembaga-icon-box" style="background: rgba(2, 132, 199, 0.1); color: #0284C7;">
+                            <i class="fas fa-users font-bold"></i>
+                        </div>
+                        <h6>Karang Taruna</h6>
+                        <small class="text-muted">Organisasi Pemuda Desa</small>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="lembaga-item">
+                        <div class="lembaga-icon-box" style="background: rgba(217, 119, 6, 0.1); color: #D97706;">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h6>Linmas & Keamanan</h6>
+                        <small class="text-muted">Ketertiban Lingkungan Desa</small>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <a href="#top" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+    <!-- Floating Back to Top Button -->
+    <a href="#top" class="back-to-top" aria-label="Kembali ke atas"><i class="fas fa-chevron-up"></i></a>
 
-    <footer class="footer bg-dark text-white text-center py-4 mt-auto">
+    <!-- Footer -->
+    <footer class="footer text-center">
         <div class="container">
-            <p class="mb-0">&copy; 2025 Desa Kalait. All Rights Reserved.</p>
-            <p class="small mb-0">Powered by KKT 145 UNSRAT</p>
+            <div class="row align-items-center">
+                <div class="col-md-6 text-md-start mb-3 mb-md-0">
+                    <h5 class="fw-bold text-white mb-1"><i class="fas fa-landmark me-2 text-warning"></i>PEMERINTAH DESA KALAIT</h5>
+                    <p class="small text-white-50 mb-0">Kecamatan Touluaan Selatan, Kabupaten Minahasa Tenggara, Sulawesi Utara</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-white">&copy; 2025 Desa Kalait. Hak Cipta Dilindungi.</p>
+                    <p class="small text-white-50 mb-0">Disusun bersama KKT 145 UNSRAT</p>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <!-- Modals Demografi -->
     <div id="infoModal" class="custom-modal-overlay">
         <div class="custom-modal-content">
             <span class="custom-close-btn">&times;</span>
-            <h3 class="modal-header-text">Detail Kependudukan</h3>
-            <div class="jaga-section-title">Rincian per Jaga</div>
+            <h3 class="modal-header-text"><i class="fas fa-users text-success me-2"></i>Total Penduduk Desa</h3>
+            <div class="jaga-section-title">Sebaran Warga per Jaga</div>
             <div class="jaga-grid">
-                <div class="jaga-box"><span class="jaga-label">Jaga I</span><span class="jaga-value">96 Orang</span>
-                </div>
-                <div class="jaga-box"><span class="jaga-label">Jaga II</span><span class="jaga-value">92 Orang</span>
-                </div>
-                <div class="jaga-box"><span class="jaga-label">Jaga III</span><span class="jaga-value">140 Orang</span>
-                </div>
-                <div class="jaga-box"><span class="jaga-label">Jaga IV</span><span class="jaga-value">128 Orang</span>
-                </div>
+                <div class="jaga-box"><span class="jaga-label">Jaga I</span><span class="jaga-value">96 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga II</span><span class="jaga-value">92 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga III</span><span class="jaga-value">140 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga IV</span><span class="jaga-value">128 Orang</span></div>
             </div>
         </div>
     </div>
@@ -398,17 +503,13 @@
     <div id="maleModal" class="custom-modal-overlay">
         <div class="custom-modal-content">
             <span class="custom-close-btn">&times;</span>
-            <h3 class="modal-header-text text-info"><i class="fas fa-male me-2"></i>Detail Laki-laki</h3>
-            <div class="jaga-section-title">Rincian per Jaga</div>
+            <h3 class="modal-header-text text-info"><i class="fas fa-mars me-2"></i>Penduduk Laki-Laki</h3>
+            <div class="jaga-section-title">Sebaran per Jaga</div>
             <div class="jaga-grid">
-                <div class="jaga-box"><span class="jaga-label">Jaga I</span><span class="jaga-value">51 Orang</span>
-                </div>
-                <div class="jaga-box"><span class="jaga-label">Jaga II</span><span class="jaga-value">48 Orang</span>
-                </div>
-                <div class="jaga-box"><span class="jaga-label">Jaga III</span><span class="jaga-value">65 Orang</span>
-                </div>
-                <div class="jaga-box"><span class="jaga-label">Jaga IV</span><span class="jaga-value">72 Orang</span>
-                </div>
+                <div class="jaga-box"><span class="jaga-label">Jaga I</span><span class="jaga-value">51 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga II</span><span class="jaga-value">48 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga III</span><span class="jaga-value">65 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga IV</span><span class="jaga-value">72 Orang</span></div>
             </div>
         </div>
     </div>
@@ -416,30 +517,24 @@
     <div id="femaleModal" class="custom-modal-overlay">
         <div class="custom-modal-content">
             <span class="custom-close-btn">&times;</span>
-            <h3 class="modal-header-text text-danger"><i class="fas fa-female me-2"></i>Detail Perempuan</h3>
-            <div class="jaga-section-title">Rincian per Jaga</div>
+            <h3 class="modal-header-text text-danger"><i class="fas fa-venus me-2"></i>Penduduk Perempuan</h3>
+            <div class="jaga-section-title">Sebaran per Jaga</div>
             <div class="jaga-grid">
-                <div class="jaga-box"><span class="jaga-label">Jaga I</span><span class="jaga-value">46 Orang</span>
-                </div>
-                <div class="jaga-box"><span class="jaga-label">Jaga II</span><span class="jaga-value">44 Orang</span>
-                </div>
-                <div class="jaga-box"><span class="jaga-label">Jaga III</span><span class="jaga-value">75 Orang</span>
-                </div>
-                <div class="jaga-box"><span class="jaga-label">Jaga IV</span><span class="jaga-value">56 Orang</span>
-                </div>
+                <div class="jaga-box"><span class="jaga-label">Jaga I</span><span class="jaga-value">46 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga II</span><span class="jaga-value">44 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga III</span><span class="jaga-value">75 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga IV</span><span class="jaga-value">56 Orang</span></div>
             </div>
         </div>
     </div>
 
+    <!-- Modal Sejarah -->
     <div id="asalUsulModal" class="custom-modal-overlay">
         <div class="custom-modal-content wide-modal">
             <span class="custom-close-btn">&times;</span>
-            <h3 class="modal-header-text text-success"><i class="fas fa-history me-2"></i>Sejarah Desa Kalait</h3>
-            <div
-                style="max-height: 60vh; overflow-y: auto; text-align: justify; font-size: 15px; padding-right: 15px; line-height: 1.7;">
-                <p>Pada tahun 1912, di Desa Karimbow yang dipimpin oleh Hukum Tua <strong>Abedneju Umboh</strong>,
-                    terjadi peralihan jabatan kepada Daniel Umboh oleh pemerintah Belanda. Abedneju Umboh bersama
-                    pendukungnya kemudian memutuskan untuk mencari wilayah baru sebagai pemukiman.</p>
+            <h3 class="modal-header-text text-success"><i class="fas fa-scroll me-2 text-warning"></i>Sejarah Lengkap Desa Kalait</h3>
+            <div style="max-height: 62vh; overflow-y: auto; text-align: justify; font-size: 0.95rem; padding-right: 12px; line-height: 1.75;">
+                <p>Pada tahun 1912, di Desa Karimbow yang dipimpin oleh Hukum Tua <strong>Abedneju Umboh</strong>, terjadi peralihan jabatan kepada Daniel Umboh oleh pemerintah Belanda. Abedneju Umboh bersama pendukungnya kemudian memutuskan untuk mencari wilayah baru sebagai pemukiman.</p>
                 <p>Beliau memilih 9 pendukung andalan untuk membantu merintis wilayah baru:</p>
                 <ul class="mb-3 ps-3" style="column-count: 2; column-gap: 20px;">
                     <li>Armanos Karuh</li>
@@ -452,30 +547,22 @@
                     <li>Daud Sagai</li>
                     <li>Ismael Lendo</li>
                 </ul>
-                <h5 class="fw-bold mt-4 text-primary">1. Perjalanan Mencari Wilayah</h5>
-                <p>Setelah gagal di kaki Pegunungan Wulur Ma'atus dan Toyopon karena kondisi tanah yang kurang cocok,
-                    rombongan akhirnya menemukan daerah subur di timur Sungai Ranoyapo. Mereka mendirikan pondok besar
-                    yang dinamakan <em>Terung Wangko</em>.</p>
-                <p>Pada tahun 1916, mereka menemukan lokasi pemukiman sementara bernama <strong>Temboan/Mawale</strong>
-                    ("Tulian Wo Iba'an" - Tempat Istirahat). Di sini, Abedneju Umboh membentuk "Mapalus Serikat" untuk
-                    membuka kebun pertama.</p>
-                <h5 class="fw-bold mt-4 text-primary">2. Pengesahan Desa Kalait (1918)</h5>
-                <p>Atas bantuan Hukum Tua Ranoketang Atas (Bapak Momuat) dan Hukum Besar Ratahan (Ruata), permohonan
-                    pengesahan disetujui pemerintah pada tahun 1918. Negeri ini dinamakan <strong>KALAID</strong> yang
-                    artinya <em>"Kalah Ingin Damai"</em>.</p>
-                <p><strong>Abedneju Umboh</strong> dilantik sebagai Hukum Tua pertama. Pada tahun 1920, beliau
-                    dianugerahi Bintang Jasa oleh pemerintah Belanda atas keberhasilannya membangun desa baru tersebut.
-                </p>
-                <h5 class="fw-bold mt-4 text-primary">3. Pindah ke Kalaid Raya (1924)</h5>
-                <p>Karena kebutuhan air dan perluasan wilayah, pada tahun 1924 penduduk pindah ke lokasi Desa Kalait
-                    Raya sekarang. Sebelum pindah, Abedneju Umboh memilih 4 putri (Anta Umboh, Sabina Lendo, Tina Umboh,
-                    Cili Karuh) dan mengucapkan sumpah sebagai pondasi desa:</p>
-                <blockquote class="blockquote border-start border-success border-4 ps-4 py-2 bg-light fst-italic">
-                    "Siapa yang baik hidup di negeri ini, maka hidupnya akan lebih baik. Siapa yang menjadi pengacau,
-                    hidupnya akan rusak."
+                <h5 class="fw-bold mt-4 text-success border-bottom pb-2"><i class="fas fa-compass me-2 text-warning"></i>1. Perjalanan Mencari Wilayah</h5>
+                <p>Setelah gagal di kaki Pegunungan Wulur Ma'atus dan Toyopon karena kondisi tanah yang kurang cocok, rombongan akhirnya menemukan daerah subur di timur Sungai Ranoyapo. Mereka mendirikan pondok besar yang dinamakan <em>Terung Wangko</em>.</p>
+                <p>Pada tahun 1916, mereka menemukan lokasi pemukiman sementara bernama <strong>Temboan/Mawale</strong> ("Tulian Wo Iba'an" - Tempat Istirahat). Di sini, Abedneju Umboh membentuk "Mapalus Serikat" untuk membuka kebun pertama.</p>
+                
+                <h5 class="fw-bold mt-4 text-success border-bottom pb-2"><i class="fas fa-award me-2 text-warning"></i>2. Pengesahan Desa Kalait (1918)</h5>
+                <p>Atas bantuan Hukum Tua Ranoketang Atas (Bapak Momuat) dan Hukum Besar Ratahan (Ruata), permohonan pengesahan disetujui pemerintah pada tahun 1918. Negeri ini dinamakan <strong>KALAID</strong> yang artinya <em>"Kalah Ingin Damai"</em>.</p>
+                <p><strong>Abedneju Umboh</strong> dilantik sebagai Hukum Tua pertama. Pada tahun 1920, beliau dianugerahi Bintang Jasa oleh pemerintah Belanda atas keberhasilannya membangun desa baru tersebut.</p>
+                
+                <h5 class="fw-bold mt-4 text-success border-bottom pb-2"><i class="fas fa-map-marked me-2 text-warning"></i>3. Pindah ke Kalaid Raya (1924)</h5>
+                <p>Karena kebutuhan air dan perluasan wilayah, pada tahun 1924 penduduk pindah ke lokasi Desa Kalait Raya sekarang. Sebelum pindah, Abedneju Umboh memilih 4 putri (Anta Umboh, Sabina Lendo, Tina Umboh, Cili Karuh) dan mengucapkan sumpah sebagai pondasi desa:</p>
+                <blockquote class="blockquote border-start border-success border-4 ps-3 py-2 bg-light fst-italic rounded-end">
+                    "Siapa yang baik hidup di negeri ini, maka hidupnya akan lebih baik. Siapa yang menjadi pengacau, hidupnya akan rusak."
                 </blockquote>
-                <h5 class="fw-bold mt-4 text-primary">4. Daftar Hukum Tua Desa Kalait</h5>
-                <div class="row">
+                
+                <h5 class="fw-bold mt-4 text-success border-bottom pb-2"><i class="fas fa-list-ol me-2 text-warning"></i>4. Silsilah Hukum Tua Desa Kalait</h5>
+                <div class="row g-2 mb-3">
                     <div class="col-md-6">
                         <ul class="list-group list-group-flush small">
                             <li class="list-group-item">1. Abedneju Umboh (1918-1926)</li>
@@ -498,16 +585,17 @@
                             <li class="list-group-item">14. Hien Tompoliu (1990-1999)</li>
                             <li class="list-group-item">15. Royke J. Somba (1999-2006)</li>
                             <li class="list-group-item">16. Adri Karuh (2006-2012)</li>
-                            <li class="list-group-item active">17. Olce Berty Tompoliu (2012-Sekarang)</li>
+                            <li class="list-group-item fw-bold text-success bg-light">17. Olce Berty Tompoliu (2012 - Sekarang)</li>
                         </ul>
                     </div>
                 </div>
-                <h5 class="fw-bold mt-4 text-primary">5. Semboyan Desa</h5>
-                <div class="alert alert-success mt-2">
-                    <ul class="list-unstyled mb-0 fw-bold">
-                        <li><i class="fas fa-check-circle me-2"></i>ELUREN: Atur/Tata Baik-Baik Desa Ini</li>
-                        <li><i class="fas fa-check-circle me-2"></i>LO'OREN: Jadikan Bagus Dan Indah Desa Ini</li>
-                        <li><i class="fas fa-check-circle me-2"></i>LE'LEREN: Cintailah Desa Ini</li>
+
+                <h5 class="fw-bold mt-4 text-success border-bottom pb-2"><i class="fas fa-shield-alt me-2 text-warning"></i>5. Semboyan Kehormatan Desa</h5>
+                <div class="alert alert-success mt-2 border-0 shadow-sm" style="background: rgba(15, 76, 58, 0.08);">
+                    <ul class="list-unstyled mb-0 fw-bold text-dark">
+                        <li class="mb-1"><i class="fas fa-check-circle text-success me-2"></i>ELUREN: Atur dan Tata Baik-Baik Desa Ini</li>
+                        <li class="mb-1"><i class="fas fa-check-circle text-success me-2"></i>LO'OREN: Jadikan Bagus Dan Indah Desa Ini</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i>LE'LEREN: Cintailah Desa Ini Sepenuh Hati</li>
                     </ul>
                 </div>
             </div>
