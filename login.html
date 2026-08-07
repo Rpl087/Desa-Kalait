@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Maintenance - Desa Kalait</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #051d16 0%, #0c3c2e 50%, #0f4c3a 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative circles background */
+        .circle-bg {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(217, 119, 6, 0.15) 0%, rgba(217, 119, 6, 0) 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .circle-1 {
+            width: 400px;
+            height: 400px;
+            top: -100px;
+            right: -100px;
+        }
+
+        .circle-2 {
+            width: 500px;
+            height: 500px;
+            bottom: -150px;
+            left: -150px;
+            background: radial-gradient(circle, rgba(15, 76, 58, 0.4) 0%, rgba(15, 76, 58, 0) 70%);
+        }
+
+        .login-card {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            width: 100%;
+            max-width: 440px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            z-index: 1;
+            position: relative;
+            text-align: center;
+            animation: cardFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes cardFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-img {
+            width: 75px;
+            height: 75px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.88rem;
+            margin-bottom: 35px;
+        }
+
+        .form-label {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+            display: block;
+            text-align: left;
+        }
+
+        .input-group-custom {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.4);
+            z-index: 10;
+            font-size: 1.1rem;
+            pointer-events: none;
+            transition: color 0.3s ease;
+        }
+
+        .form-control-custom {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1.5px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 14px 45px 14px 48px;
+            color: white;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-control-custom:focus {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #D97706;
+            box-shadow: 0 0 15px rgba(217, 119, 6, 0.25);
+        }
+
+        .form-control-custom:focus ~ .input-icon {
+            color: #D97706;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            z-index: 10;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            padding: 4px;
+        }
+
+        .toggle-password:hover {
+            color: #ffffff;
+        }
+
+        .btn-login {
+            width: 100%;
+            background: linear-gradient(135deg, #D97706 0%, #B45309 100%);
+            border: none;
+            border-radius: 12px;
+            padding: 14px;
+            color: white;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            box-shadow: 0 8px 20px rgba(217, 119, 6, 0.3);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-login::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(217, 119, 6, 0.45);
+        }
+
+        .btn-login:hover::before {
+            left: 100%;
+        }
+
+        .btn-login:active {
+            transform: translateY(1px);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 30px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #D97706;
+        }
+
+        .back-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .back-link:hover i {
+            transform: translateX(-3px);
+        }
+
+        /* Error notification block */
+        .error-alert {
+            background: rgba(225, 29, 72, 0.15);
+            border: 1px solid rgba(225, 29, 72, 0.3);
+            color: #FDA4AF;
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            display: none;
+            align-items: center;
+            gap: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="circle-bg circle-1"></div>
+    <div class="circle-bg circle-2"></div>
+
+    <div class="login-card">
+        <img src="img/logo.png" alt="Logo Minahasa Tenggara" class="logo-img">
+        <h2>Sistem Maintenance</h2>
+        <p class="subtitle">Desa Kalait Raya, Touluaan Selatan</p>
+
+        <div id="errorAlert" class="error-alert">
+            <i class="fas fa-exclamation-circle fs-5"></i>
+            <span>Password yang Anda masukkan salah. Silakan coba lagi.</span>
+        </div>
+
+        <form id="loginForm">
+            <div class="text-start">
+                <label for="password" class="form-label">Password Maintenance</label>
+            </div>
+            <div class="input-group-custom">
+                <input type="password" id="password" class="form-control-custom" placeholder="Masukkan password..." required autofocus>
+                <i class="fas fa-lock input-icon"></i>
+                <i class="fas fa-eye toggle-password" id="togglePasswordBtn"></i>
+            </div>
+            
+            <button type="submit" class="btn-login" id="loginBtn">
+                <span id="btnText">MASUK KE PANEL</span>
+            </button>
+        </form>
+
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Kembali ke Beranda Publik
+        </a>
+    </div>
+
+    <script>
+        // Password Visibility Toggle
+        const passwordInput = document.getElementById('password');
+        const toggleBtn = document.getElementById('togglePasswordBtn');
+
+        toggleBtn.addEventListener('click', () => {
+            const isPassword = passwordInput.getAttribute('type') === 'password';
+            passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+            toggleBtn.className = isPassword ? 'fas fa-eye-slash toggle-password' : 'fas fa-eye toggle-password';
+        });
+
+        // SHA-256 Hashing function (Native browser Web Cryptography API)
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);                    
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            return hashHex;
+        }
+
+        // Handle Login Submission
+        const loginForm = document.getElementById('loginForm');
+        const errorAlert = document.getElementById('errorAlert');
+        const btnText = document.getElementById('btnText');
+        const loginBtn = document.getElementById('loginBtn');
+
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            errorAlert.style.display = 'none';
+            
+            // UI Loading state
+            btnText.innerHTML = '<i class="fas fa-circle-notch fa-spin me-2"></i>MEMPROSES...';
+            loginBtn.disabled = true;
+
+            const password = passwordInput.value;
+            
+            try {
+                // Calculate Hash
+                const hashedPass = await sha256(password);
+                
+                // Redirect browser to [hashedPass].html
+                // Since this is client-side, the file existence validates the password.
+                window.location.href = hashedPass + '.html';
+            } catch (err) {
+                console.error("Proses autentikasi gagal:", err);
+                errorAlert.style.display = 'flex';
+                btnText.textContent = 'MASUK KE PANEL';
+                loginBtn.disabled = false;
+            }
+        });
+
+        // Check if redirected back due to a 404 (optional helper)
+        // If they append '?error=true' we can display it.
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('error') === '404') {
+            errorAlert.style.display = 'flex';
+        }
+    </script>
+</body>
+
+</html>

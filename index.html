@@ -212,7 +212,7 @@
                             <div class="stat-icon-wrapper bg-primary-soft">
                                 <i class="fas fa-users stat-icon"></i>
                             </div>
-                            <h3 class="stat-number">456</h3>
+                            <h3 class="stat-number" id="val-total-jiwa">456</h3>
                             <p class="stat-label mb-1">Total Jiwa Warga Desa</p>
                             <span class="stat-hint"><i class="fas fa-chart-bar me-1"></i> Rincian Jaga I - IV</span>
                         </div>
@@ -224,7 +224,7 @@
                             <div class="stat-icon-wrapper bg-info-soft">
                                 <i class="fas fa-mars stat-icon"></i>
                             </div>
-                            <h3 class="stat-number" style="color: #0284C7;">236</h3>
+                            <h3 class="stat-number" id="val-total-laki" style="color: #0284C7;">236</h3>
                             <p class="stat-label mb-1">Penduduk Laki-Laki</p>
                             <span class="stat-hint" style="background: rgba(2, 132, 199, 0.1); color: #0284C7;"><i class="fas fa-mars me-1"></i> Detail per Jaga</span>
                         </div>
@@ -236,7 +236,7 @@
                             <div class="stat-icon-wrapper bg-danger-soft">
                                 <i class="fas fa-venus stat-icon"></i>
                             </div>
-                            <h3 class="stat-number" style="color: #E11D48;">221</h3>
+                            <h3 class="stat-number" id="val-total-perempuan" style="color: #E11D48;">221</h3>
                             <p class="stat-label mb-1">Penduduk Perempuan</p>
                             <span class="stat-hint" style="background: rgba(225, 29, 72, 0.1); color: #E11D48;"><i class="fas fa-venus me-1"></i> Detail per Jaga</span>
                         </div>
@@ -261,7 +261,7 @@
                                             <i class="fas fa-tractor"></i>
                                         </div>
                                         <div>
-                                            <h4 class="stat-number text-success mb-0">393 <small class="fs-6 text-muted">Jiwa</small></h4>
+                                            <h4 class="stat-number text-success mb-0"><span id="val-pekerjaan-petani">393</span> <small class="fs-6 text-muted">Jiwa</small></h4>
                                             <p class="mb-0 text-dark fw-bold">Petani / Pekebun</p>
                                         </div>
                                     </div>
@@ -272,7 +272,7 @@
                                             <i class="fas fa-store"></i>
                                         </div>
                                         <div>
-                                            <h4 class="stat-number mb-0" style="color: #0284C7;">43 <small class="fs-6 text-muted">Jiwa</small></h4>
+                                            <h4 class="stat-number mb-0" style="color: #0284C7;"><span id="val-pekerjaan-wiraswasta">43</span> <small class="fs-6 text-muted">Jiwa</small></h4>
                                             <p class="mb-0 text-dark fw-bold">Wiraswasta / Pedagang</p>
                                         </div>
                                     </div>
@@ -283,7 +283,7 @@
                                             <i class="fas fa-graduation-cap"></i>
                                         </div>
                                         <div>
-                                            <h4 class="stat-number mb-0" style="color: #D97706;">83 <small class="fs-6 text-muted">Jiwa</small></h4>
+                                            <h4 class="stat-number mb-0" style="color: #D97706;"><span id="val-pekerjaan-pelajar">83</span> <small class="fs-6 text-muted">Jiwa</small></h4>
                                             <p class="mb-0 text-dark fw-bold">Pelajar / Mahasiswa</p>
                                         </div>
                                     </div>
@@ -294,7 +294,7 @@
                                             <i class="fas fa-user-shield"></i>
                                         </div>
                                         <div>
-                                            <h4 class="stat-number mb-0" style="color: #E11D48;">8 <small class="fs-6 text-muted">Jiwa</small></h4>
+                                            <h4 class="stat-number mb-0" style="color: #E11D48;"><span id="val-pekerjaan-pns">8</span> <small class="fs-6 text-muted">Jiwa</small></h4>
                                             <p class="mb-0 text-dark fw-bold">PNS / TNI / POLRI</p>
                                         </div>
                                     </div>
@@ -305,7 +305,7 @@
                                             <i class="fas fa-hard-hat"></i>
                                         </div>
                                         <div>
-                                            <h4 class="stat-number text-muted mb-0">0 <small class="fs-6 text-muted">Jiwa</small></h4>
+                                            <h4 class="stat-number text-muted mb-0"><span id="val-pekerjaan-buruh">0</span> <small class="fs-6 text-muted">Jiwa</small></h4>
                                             <p class="mb-0 text-dark fw-bold">Buruh Harian Lepas</p>
                                         </div>
                                     </div>
@@ -333,19 +333,19 @@
                             <ul class="list-unstyled mb-0">
                                 <li class="p-2 mb-2 rounded bg-light border d-flex align-items-center justify-content-between">
                                     <span><i class="fas fa-user-tie text-success me-2 fs-5"></i> <strong>Hukum Tua (Kepala Desa)</strong></span>
-                                    <span class="badge bg-success fs-6">Olce B. Tompoliu</span>
+                                    <span class="badge bg-success fs-6" id="val-perangkat-hukumtua">Olce B. Tompoliu</span>
                                 </li>
                                 <li class="p-2 mb-2 rounded bg-light border d-flex align-items-center justify-content-between">
                                     <span><i class="fas fa-user-edit text-info me-2 fs-5"></i> Sekretaris Desa</span>
-                                    <strong class="text-dark">Marni Rumengan</strong>
+                                    <strong class="text-dark" id="val-perangkat-sekdes">Marni Rumengan</strong>
                                 </li>
                                 <li class="p-2 mb-2 rounded bg-light border d-flex align-items-center justify-content-between">
                                     <span><i class="fas fa-wallet text-warning me-2 fs-5"></i> Bendahara Desa</span>
-                                    <strong class="text-dark">Ivana Tompoliu</strong>
+                                    <strong class="text-dark" id="val-perangkat-bendahara">Ivana Tompoliu</strong>
                                 </li>
                                 <li class="p-2 mb-2 rounded bg-light border d-flex align-items-center justify-content-between">
                                     <span><i class="fas fa-tasks text-primary me-2 fs-5"></i> Kepala Urusan (Kaur)</span>
-                                    <strong class="text-dark">Gryvit Karuh</strong>
+                                    <strong class="text-dark" id="val-perangkat-kaur">Gryvit Karuh</strong>
                                 </li>
                             </ul>
                             
@@ -355,25 +355,25 @@
                                 <div class="col-sm-6">
                                     <div class="p-2 rounded border bg-white d-flex align-items-center">
                                         <i class="fas fa-user-tag text-success me-2"></i>
-                                        <div><small class="text-muted d-block">Kepala Jaga 1</small><strong>Raykal Saroinsong</strong></div>
+                                        <div><small class="text-muted d-block">Kepala Jaga 1</small><strong id="val-jaga-1">Raykal Saroinsong</strong></div>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="p-2 rounded border bg-white d-flex align-items-center">
                                         <i class="fas fa-user-tag text-success me-2"></i>
-                                        <div><small class="text-muted d-block">Kepala Jaga 2</small><strong>Stevi Tompoliu</strong></div>
+                                        <div><small class="text-muted d-block">Kepala Jaga 2</small><strong id="val-jaga-2">Stevi Tompoliu</strong></div>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="p-2 rounded border bg-white d-flex align-items-center">
                                         <i class="fas fa-user-tag text-success me-2"></i>
-                                        <div><small class="text-muted d-block">Kepala Jaga 3</small><strong>Jein Somba</strong></div>
+                                        <div><small class="text-muted d-block">Kepala Jaga 3</small><strong id="val-jaga-3">Jein Somba</strong></div>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="p-2 rounded border bg-white d-flex align-items-center">
                                         <i class="fas fa-user-tag text-success me-2"></i>
-                                        <div><small class="text-muted d-block">Kepala Jaga 4</small><strong>Harto Karuh</strong></div>
+                                        <div><small class="text-muted d-block">Kepala Jaga 4</small><strong id="val-jaga-4">Harto Karuh</strong></div>
                                     </div>
                                 </div>
                             </div>
@@ -492,10 +492,10 @@
             <h3 class="modal-header-text"><i class="fas fa-users text-success me-2"></i>Total Penduduk Desa</h3>
             <div class="jaga-section-title">Sebaran Warga per Jaga</div>
             <div class="jaga-grid">
-                <div class="jaga-box"><span class="jaga-label">Jaga I</span><span class="jaga-value">96 Orang</span></div>
-                <div class="jaga-box"><span class="jaga-label">Jaga II</span><span class="jaga-value">92 Orang</span></div>
-                <div class="jaga-box"><span class="jaga-label">Jaga III</span><span class="jaga-value">140 Orang</span></div>
-                <div class="jaga-box"><span class="jaga-label">Jaga IV</span><span class="jaga-value">128 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga I</span><span class="jaga-value" id="val-jaga-total-1">96 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga II</span><span class="jaga-value" id="val-jaga-total-2">92 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga III</span><span class="jaga-value" id="val-jaga-total-3">140 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga IV</span><span class="jaga-value" id="val-jaga-total-4">128 Orang</span></div>
             </div>
         </div>
     </div>
@@ -506,10 +506,10 @@
             <h3 class="modal-header-text text-info"><i class="fas fa-mars me-2"></i>Penduduk Laki-Laki</h3>
             <div class="jaga-section-title">Sebaran per Jaga</div>
             <div class="jaga-grid">
-                <div class="jaga-box"><span class="jaga-label">Jaga I</span><span class="jaga-value">51 Orang</span></div>
-                <div class="jaga-box"><span class="jaga-label">Jaga II</span><span class="jaga-value">48 Orang</span></div>
-                <div class="jaga-box"><span class="jaga-label">Jaga III</span><span class="jaga-value">65 Orang</span></div>
-                <div class="jaga-box"><span class="jaga-label">Jaga IV</span><span class="jaga-value">72 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga I</span><span class="jaga-value" id="val-jaga-laki-1">51 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga II</span><span class="jaga-value" id="val-jaga-laki-2">48 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga III</span><span class="jaga-value" id="val-jaga-laki-3">65 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga IV</span><span class="jaga-value" id="val-jaga-laki-4">72 Orang</span></div>
             </div>
         </div>
     </div>
@@ -520,10 +520,10 @@
             <h3 class="modal-header-text text-danger"><i class="fas fa-venus me-2"></i>Penduduk Perempuan</h3>
             <div class="jaga-section-title">Sebaran per Jaga</div>
             <div class="jaga-grid">
-                <div class="jaga-box"><span class="jaga-label">Jaga I</span><span class="jaga-value">46 Orang</span></div>
-                <div class="jaga-box"><span class="jaga-label">Jaga II</span><span class="jaga-value">44 Orang</span></div>
-                <div class="jaga-box"><span class="jaga-label">Jaga III</span><span class="jaga-value">75 Orang</span></div>
-                <div class="jaga-box"><span class="jaga-label">Jaga IV</span><span class="jaga-value">56 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga I</span><span class="jaga-value" id="val-jaga-perempuan-1">46 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga II</span><span class="jaga-value" id="val-jaga-perempuan-2">44 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga III</span><span class="jaga-value" id="val-jaga-perempuan-3">75 Orang</span></div>
+                <div class="jaga-box"><span class="jaga-label">Jaga IV</span><span class="jaga-value" id="val-jaga-perempuan-4">56 Orang</span></div>
             </div>
         </div>
     </div>
@@ -564,7 +564,7 @@
                 <h5 class="fw-bold mt-4 text-success border-bottom pb-2"><i class="fas fa-list-ol me-2 text-warning"></i>4. Silsilah Hukum Tua Desa Kalait</h5>
                 <div class="row g-2 mb-3">
                     <div class="col-md-6">
-                        <ul class="list-group list-group-flush small">
+                        <ul class="list-group list-group-flush small" id="silsilah-col-1">
                             <li class="list-group-item">1. Abedneju Umboh (1918-1926)</li>
                             <li class="list-group-item">2. Yohanes Umboh (1926-1933)</li>
                             <li class="list-group-item">3. Johanis Pele (1933-1950)</li>
@@ -577,7 +577,7 @@
                         </ul>
                     </div>
                     <div class="col-md-6">
-                        <ul class="list-group list-group-flush small">
+                        <ul class="list-group list-group-flush small" id="silsilah-col-2">
                             <li class="list-group-item">10. M. Ch. Somba (1981-1989)</li>
                             <li class="list-group-item">11. Like Kindangen (1989 & 1990)</li>
                             <li class="list-group-item">12. Yosep Umboh (1989-1990)</li>

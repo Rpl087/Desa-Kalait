@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Kontrol Maintenance - Desa Kalait</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --primary-color: #0F4C3A;
+            --primary-dark: #093427;
+            --primary-light: #E8F5F0;
+            --accent-color: #D97706;
+            --bg-light: #F8FAFC;
+            --card-bg: #FFFFFF;
+            --text-dark: #0F172A;
+            --text-muted: #64748B;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Dashboard layout */
+        .sidebar {
+            background-color: var(--primary-dark);
+            color: white;
+            min-height: 100vh;
+            width: 260px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            box-shadow: 4px 0 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .main-content {
+            margin-left: 260px;
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-brand {
+            padding: 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .sidebar-brand img {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
+        }
+
+        .sidebar-brand h5 {
+            margin: 0;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .sidebar-menu {
+            padding: 20px 0;
+            list-style: none;
+            margin: 0;
+        }
+
+        .menu-item a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 24px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.92rem;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .menu-item a:hover, .menu-item.active a {
+            color: white;
+            background: rgba(255, 255, 255, 0.05);
+            border-left-color: var(--accent-color);
+        }
+
+        .menu-item a i {
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Top Navbar */
+        .top-navbar {
+            background-color: white;
+            padding: 16px 40px;
+            border-bottom: 1px solid rgba(15, 76, 58, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        /* Premium Cards */
+        .panel-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(15, 76, 58, 0.08);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.02);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .panel-card-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 18px 24px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .panel-card-body {
+            padding: 28px;
+        }
+
+        /* Forms styling */
+        .form-label-custom {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .form-control-custom {
+            border: 1.5px solid rgba(15, 76, 58, 0.12);
+            border-radius: 10px;
+            padding: 10px 14px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control-custom:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 12px rgba(217, 119, 6, 0.18);
+            outline: none;
+        }
+
+        /* Tab panels */
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Buttons */
+        .btn-custom-primary {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 10px 24px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(15, 76, 58, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(15, 76, 58, 0.25);
+            color: white;
+        }
+
+        .btn-custom-accent {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #B45309 100%);
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 10px 24px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(217, 119, 6, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom-accent:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(217, 119, 6, 0.25);
+            color: white;
+        }
+
+        /* Notification Toast */
+        .toast-container-custom {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 1050;
+        }
+
+        .toast-custom {
+            background: #0F172A;
+            color: white;
+            border-radius: 12px;
+            padding: 16px 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+        }
+
+        .toast-custom.show {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Silsilah Hukum Tua List styling */
+        .silsilah-table {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(15, 76, 58, 0.08);
+        }
+
+        .silsilah-table th {
+            background: rgba(15, 76, 58, 0.05);
+            color: var(--primary-color);
+            font-weight: 700;
+            border-bottom: 2px solid rgba(15, 76, 58, 0.1);
+        }
+
+        .silsilah-table td {
+            vertical-align: middle;
+        }
+
+        /* Badge status */
+        .badge-status {
+            background: var(--primary-light);
+            color: var(--primary-color);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <img src="img/logo.png" alt="Logo Minahasa Tenggara">
+            <div>
+                <h5>Desa Kalait</h5>
+                <small class="text-white-50 small">Panel Maintenance</small>
+            </div>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="menu-item active" data-target="panel-dashboard">
+                <a href="#"><i class="fas fa-chart-line"></i> Dashboard</a>
+            </li>
+            <li class="menu-item" data-target="panel-demografi">
+                <a href="#"><i class="fas fa-users"></i> Kependudukan</a>
+            </li>
+            <li class="menu-item" data-target="panel-pekerjaan">
+                <a href="#"><i class="fas fa-briefcase"></i> Profesi & Pekerjaan</a>
+            </li>
+            <li class="menu-item" data-target="panel-perangkat">
+                <a href="#"><i class="fas fa-sitemap"></i> Perangkat Desa</a>
+            </li>
+            <li class="menu-item" data-target="panel-silsilah">
+                <a href="#"><i class="fas fa-list-ol"></i> Silsilah Hukum Tua</a>
+            </li>
+            <li class="menu-item" data-target="panel-export">
+                <a href="#"><i class="fas fa-database"></i> Database & Reset</a>
+            </li>
+            <li class="mt-4 border-top border-secondary pt-3">
+                <a href="index.html" class="text-white-50"><i class="fas fa-external-link-alt"></i> Halaman Publik</a>
+            </li>
+            <li>
+                <a href="login.html" class="text-danger"><i class="fas fa-sign-out-alt"></i> Keluar</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navbar -->
+        <div class="top-navbar">
+            <h4 class="mb-0 fw-bold" id="panel-title">Dashboard Overview</h4>
+            <div class="d-flex align-items-center gap-3">
+                <span class="badge bg-danger px-3 py-2 rounded-pill"><i class="fas fa-tools me-1"></i> Mode Maintenance Aktif</span>
+            </div>
+        </div>
+
+        <!-- Tab Panel: Dashboard -->
+        <div class="tab-panel active" id="panel-dashboard">
+            <div class="row g-4 mb-4">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm p-4 bg-white rounded-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="text-muted fw-bold small text-uppercase">Total Penduduk</span>
+                            <div class="p-2 rounded-3" style="background: rgba(15, 76, 58, 0.1); color: var(--primary-color);">
+                                <i class="fas fa-users fs-4"></i>
+                            </div>
+                        </div>
+                        <h2 class="fw-bold mb-1" id="overview-total">456</h2>
+                        <p class="text-muted small mb-0">Total Jiwa Warga Desa Kalait</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm p-4 bg-white rounded-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="text-muted fw-bold small text-uppercase">Struktur Perangkat</span>
+                            <div class="p-2 rounded-3" style="background: rgba(2, 132, 199, 0.1); color: #0284C7;">
+                                <i class="fas fa-sitemap fs-4"></i>
+                            </div>
+                        </div>
+                        <h2 class="fw-bold mb-1">8</h2>
+                        <p class="text-muted small mb-0">Aparatur & Kepala Jaga Aktif</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm p-4 bg-white rounded-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="text-muted fw-bold small text-uppercase">Hukum Tua Pertama - Sekarang</span>
+                            <div class="p-2 rounded-3" style="background: rgba(217, 119, 6, 0.1); color: var(--accent-color);">
+                                <i class="fas fa-scroll fs-4"></i>
+                            </div>
+                        </div>
+                        <h2 class="fw-bold mb-1" id="overview-hukumtua-count">17</h2>
+                        <p class="text-muted small mb-0">Total Riwayat Pemimpin Desa</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-card mt-4">
+                <div class="panel-card-header">
+                    <span><i class="fas fa-info-circle me-2"></i>Petunjuk Penggunaan Panel Maintenance</span>
+                </div>
+                <div class="panel-card-body">
+                    <h5>Selamat Datang di Panel Maintenance Desa Kalait Raya</h5>
+                    <p class="text-muted">Di panel ini, Anda dapat mengelola data kependudukan secara real-time yang langsung disinkronkan ke halaman utama website publik menggunakan penyimpanan browser (*localStorage*).</p>
+                    <hr>
+                    <h6 class="fw-bold text-success"><i class="fas fa-check-circle me-2"></i>Cara Melakukan Pembaruan Data:</h6>
+                    <ol class="text-muted ps-3">
+                        <li class="mb-2">Gunakan menu di samping kiri untuk membuka kategori data yang ingin diubah (Kependudukan, Pekerjaan, Perangkat, dll).</li>
+                        <li class="mb-2">Ubah informasi di kolom formulir yang tersedia.</li>
+                        <li class="mb-2">Klik tombol **Simpan Perubahan** di bagian bawah form tersebut.</li>
+                        <li class="mb-2">Buka/muat ulang <a href="index.html" target="_blank" class="fw-bold text-success text-decoration-none">Halaman Utama Publik <i class="fas fa-external-link-alt small ms-1"></i></a> untuk langsung melihat perubahannya.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Panel: Kependudukan & Demografi -->
+        <div class="tab-panel" id="panel-demografi">
+            <div class="panel-card">
+                <div class="panel-card-header">
+                    <span><i class="fas fa-chart-pie me-2"></i>Edit Sebaran Penduduk per Jaga (I - IV)</span>
+                </div>
+                <div class="panel-card-body">
+                    <form id="form-demografi">
+                        <div class="row g-4">
+                            <!-- Jaga I -->
+                            <div class="col-md-3">
+                                <div class="p-3 bg-light rounded-3 border">
+                                    <h6 class="fw-bold text-success mb-3"><i class="fas fa-map-marker-alt me-1"></i>JAGA I</h6>
+                                    <div class="mb-2">
+                                        <label class="form-label form-label-custom">Laki-Laki</label>
+                                        <input type="number" id="jaga-laki-1" class="form-control form-control-custom" required>
+                                    </div>
+                                    <div class="mb-0">
+                                        <label class="form-label form-label-custom">Perempuan</label>
+                                        <input type="number" id="jaga-perempuan-1" class="form-control form-control-custom" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Jaga II -->
+                            <div class="col-md-3">
+                                <div class="p-3 bg-light rounded-3 border">
+                                    <h6 class="fw-bold text-success mb-3"><i class="fas fa-map-marker-alt me-1"></i>JAGA II</h6>
+                                    <div class="mb-2">
+                                        <label class="form-label form-label-custom">Laki-Laki</label>
+                                        <input type="number" id="jaga-laki-2" class="form-control form-control-custom" required>
+                                    </div>
+                                    <div class="mb-0">
+                                        <label class="form-label form-label-custom">Perempuan</label>
+                                        <input type="number" id="jaga-perempuan-2" class="form-control form-control-custom" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Jaga III -->
+                            <div class="col-md-3">
+                                <div class="p-3 bg-light rounded-3 border">
+                                    <h6 class="fw-bold text-success mb-3"><i class="fas fa-map-marker-alt me-1"></i>JAGA III</h6>
+                                    <div class="mb-2">
+                                        <label class="form-label form-label-custom">Laki-Laki</label>
+                                        <input type="number" id="jaga-laki-3" class="form-control form-control-custom" required>
+                                    </div>
+                                    <div class="mb-0">
+                                        <label class="form-label form-label-custom">Perempuan</label>
+                                        <input type="number" id="jaga-perempuan-3" class="form-control form-control-custom" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Jaga IV -->
+                            <div class="col-md-3">
+                                <div class="p-3 bg-light rounded-3 border">
+                                    <h6 class="fw-bold text-success mb-3"><i class="fas fa-map-marker-alt me-1"></i>JAGA IV</h6>
+                                    <div class="mb-2">
+                                        <label class="form-label form-label-custom">Laki-Laki</label>
+                                        <input type="number" id="jaga-laki-4" class="form-control form-control-custom" required>
+                                    </div>
+                                    <div class="mb-0">
+                                        <label class="form-label form-label-custom">Perempuan</label>
+                                        <input type="number" id="jaga-perempuan-4" class="form-control form-control-custom" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Summary info -->
+                        <div class="mt-4 p-3 bg-light rounded-3 border d-flex justify-content-around text-center">
+                            <div>
+                                <small class="text-muted d-block uppercase fw-bold">Kalkulasi Total Laki-Laki</small>
+                                <h4 class="fw-bold text-info mt-1" id="calc-total-laki">0 Orang</h4>
+                            </div>
+                            <div class="border-end"></div>
+                            <div>
+                                <small class="text-muted d-block uppercase fw-bold">Kalkulasi Total Perempuan</small>
+                                <h4 class="fw-bold text-danger mt-1" id="calc-total-perempuan">0 Orang</h4>
+                            </div>
+                            <div class="border-end"></div>
+                            <div>
+                                <small class="text-muted d-block uppercase fw-bold">Kalkulasi Total Keseluruhan</small>
+                                <h4 class="fw-bold text-success mt-1" id="calc-total-jiwa">0 Orang</h4>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 text-end">
+                            <button type="submit" class="btn-custom-primary"><i class="fas fa-save me-2"></i>Simpan Perubahan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Panel: Pekerjaan & Profesi -->
+        <div class="tab-panel" id="panel-pekerjaan">
+            <div class="panel-card">
+                <div class="panel-card-header">
+                    <span><i class="fas fa-briefcase me-2"></i>Edit Statistik Pekerjaan & Mata Pencaharian</span>
+                </div>
+                <div class="panel-card-body">
+                    <form id="form-pekerjaan">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="input-pekerjaan-petani" class="form-label form-label-custom">Petani / Pekebun (Jiwa)</label>
+                                <input type="number" id="input-pekerjaan-petani" class="form-control form-control-custom" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="input-pekerjaan-wiraswasta" class="form-label form-label-custom">Wiraswasta / Pedagang (Jiwa)</label>
+                                <input type="number" id="input-pekerjaan-wiraswasta" class="form-control form-control-custom" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="input-pekerjaan-pelajar" class="form-label form-label-custom">Pelajar / Mahasiswa (Jiwa)</label>
+                                <input type="number" id="input-pekerjaan-pelajar" class="form-control form-control-custom" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="input-pekerjaan-pns" class="form-label form-label-custom">PNS / TNI / POLRI (Jiwa)</label>
+                                <input type="number" id="input-pekerjaan-pns" class="form-control form-control-custom" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="input-pekerjaan-buruh" class="form-label form-label-custom">Buruh Harian Lepas (Jiwa)</label>
+                                <input type="number" id="input-pekerjaan-buruh" class="form-control form-control-custom" required>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 text-end">
+                            <button type="submit" class="btn-custom-primary"><i class="fas fa-save me-2"></i>Simpan Perubahan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Panel: Perangkat Desa -->
+        <div class="tab-panel" id="panel-perangkat">
+            <div class="panel-card">
+                <div class="panel-card-header">
+                    <span><i class="fas fa-sitemap me-2"></i>Edit Jajaran Pemerintah & Aparatur Desa</span>
+                </div>
+                <div class="panel-card-body">
+                    <form id="form-perangkat">
+                        <h5 class="fw-bold text-success border-bottom pb-2 mb-3"><i class="fas fa-user-shield me-2"></i>Aparatur Kantor Desa</h5>
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <label for="input-perangkat-hukumtua" class="form-label form-label-custom">Hukum Tua (Kepala Desa)</label>
+                                <input type="text" id="input-perangkat-hukumtua" class="form-control form-control-custom" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="input-perangkat-sekdes" class="form-label form-label-custom">Sekretaris Desa</label>
+                                <input type="text" id="input-perangkat-sekdes" class="form-control form-control-custom" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="input-perangkat-bendahara" class="form-label form-label-custom">Bendahara Desa</label>
+                                <input type="text" id="input-perangkat-bendahara" class="form-control form-control-custom" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="input-perangkat-kaur" class="form-label form-label-custom">Kepala Urusan (Kaur)</label>
+                                <input type="text" id="input-perangkat-kaur" class="form-control form-control-custom" required>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold text-success border-bottom pb-2 mb-3"><i class="fas fa-user-tag me-2"></i>Jajaran Kepala Jaga (Kepala Dusun)</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="input-jaga-1" class="form-label form-label-custom">Kepala Jaga I</label>
+                                <input type="text" id="input-jaga-1" class="form-control form-control-custom" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="input-jaga-2" class="form-label form-label-custom">Kepala Jaga II</label>
+                                <input type="text" id="input-jaga-2" class="form-control form-control-custom" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="input-jaga-3" class="form-label form-label-custom">Kepala Jaga III</label>
+                                <input type="text" id="input-jaga-3" class="form-control form-control-custom" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="input-jaga-4" class="form-label form-label-custom">Kepala Jaga IV</label>
+                                <input type="text" id="input-jaga-4" class="form-control form-control-custom" required>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 text-end">
+                            <button type="submit" class="btn-custom-primary"><i class="fas fa-save me-2"></i>Simpan Perubahan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Panel: Silsilah Hukum Tua -->
+        <div class="tab-panel" id="panel-silsilah">
+            <div class="row">
+                <!-- List Table -->
+                <div class="col-lg-8">
+                    <div class="panel-card">
+                        <div class="panel-card-header">
+                            <span><i class="fas fa-list-ol me-2"></i>Daftar Silsilah Hukum Tua Desa Kalait</span>
+                            <span class="badge bg-light text-success fw-bold" id="badge-total-silsilah">17 Orang</span>
+                        </div>
+                        <div class="panel-card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle mb-0 silsilah-table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 70px;" class="ps-4">No</th>
+                                            <th>Nama Lengkap</th>
+                                            <th>Masa Jabatan</th>
+                                            <th style="width: 150px;">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="silsilah-table-body">
+                                        <!-- Data rendered dynamically -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add/Edit form -->
+                <div class="col-lg-4">
+                    <div class="panel-card">
+                        <div class="panel-card-header">
+                            <span id="form-silsilah-title"><i class="fas fa-plus-circle me-2"></i>Tambah Silsilah</span>
+                        </div>
+                        <div class="panel-card-body">
+                            <form id="form-silsilah">
+                                <input type="hidden" id="input-silsilah-index" value="-1">
+                                <div class="mb-3">
+                                    <label for="input-silsilah-no" class="form-label form-label-custom">No. Urut</label>
+                                    <input type="number" id="input-silsilah-no" class="form-control form-control-custom" placeholder="Contoh: 18" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="input-silsilah-nama" class="form-label form-label-custom">Nama Lengkap</label>
+                                    <input type="text" id="input-silsilah-nama" class="form-control form-control-custom" placeholder="Nama Hukum Tua..." required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="input-silsilah-tahun" class="form-label form-label-custom">Masa Jabatan</label>
+                                    <input type="text" id="input-silsilah-tahun" class="form-control form-control-custom" placeholder="Contoh: 2026 - Sekarang" required>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="input-silsilah-current">
+                                    <label class="form-check-label text-success fw-bold" for="input-silsilah-current">Sedang Menjabat Sekarang</label>
+                                </div>
+                                
+                                <div class="d-grid gap-2">
+                                    <button type="submit" class="btn-custom-primary" id="btn-save-silsilah"><i class="fas fa-plus me-2"></i>Tambahkan</button>
+                                    <button type="button" class="btn btn-light text-muted" id="btn-cancel-silsilah" style="display: none;">Batal Edit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Panel: Export / Reset -->
+        <div class="tab-panel" id="panel-export">
+            <div class="panel-card">
+                <div class="panel-card-header">
+                    <span><i class="fas fa-database me-2"></i>Ekspor JSON Konfigurasi & Reset Data</span>
+                </div>
+                <div class="panel-card-body">
+                    <h5>Permanenkan Data di Source Code</h5>
+                    <p class="text-muted">Karena data di panel ini disimpan di *localStorage* browser pengunjung, perubahan tersebut hanya aktif di browser saat ini. Untuk memperbarui website secara permanen di server, salin data JSON berikut dan gantikan nilai variabel `DEFAULT_DATA` di file `js/script.js` proyek Anda.</p>
+                    
+                    <div class="mb-4">
+                        <textarea class="form-control text-monospace bg-light p-3" id="json-export-area" rows="10" readonly style="font-family: monospace; font-size: 0.85rem; color: #334155; border: 1.5px solid rgba(15, 76, 58, 0.15);"></textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <button type="button" class="btn-custom-accent" id="btn-copy-json"><i class="fas fa-copy me-2"></i>Salin Konfigurasi JSON</button>
+                    </div>
+                    
+                    <hr class="my-4">
+                    
+                    <h5 class="text-danger fw-bold"><i class="fas fa-exclamation-triangle me-2"></i>Zona Bahaya</h5>
+                    <p class="text-muted">Gunakan tombol berikut jika Anda ingin menghapus seluruh data kustom yang telah Anda buat di browser saat ini dan mengembalikannya ke data default asli bawaan website.</p>
+                    
+                    <button type="button" class="btn btn-danger px-4 py-2" id="btn-reset-data"><i class="fas fa-trash-alt me-2"></i>Reset Seluruh Data Ke Bawaan Awal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-container-custom">
+        <div class="toast-custom" id="actionToast">
+            <i class="fas fa-check-circle text-success fs-4"></i>
+            <span id="toastMessage">Pembaruan data berhasil disimpan!</span>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+        
+    <script>
+        // Default fallback values
+        const DEFAULT_DATA = {
+            demografi: {
+                totalJiwa: 456,
+                laki: 236,
+                perempuan: 221,
+                jaga: {
+                    total: [96, 92, 140, 128],
+                    laki: [51, 48, 65, 72],
+                    perempuan: [46, 44, 75, 56]
+                }
+            },
+            pekerjaan: {
+                petani: 393,
+                wiraswasta: 43,
+                pelajar: 83,
+                pns: 8,
+                buruh: 0
+            },
+            perangkat: {
+                hukumtua: "Olce B. Tompoliu",
+                sekdes: "Marni Rumengan",
+                bendahara: "Ivana Tompoliu",
+                kaur: "Gryvit Karuh",
+                jaga1: "Raykal Saroinsong",
+                jaga2: "Stevi Tompoliu",
+                jaga3: "Jein Somba",
+                jaga4: "Harto Karuh"
+            },
+            silsilah: [
+                { no: 1, nama: "Abedneju Umboh", tahun: "1918-1926" },
+                { no: 2, nama: "Yohanes Umboh", tahun: "1926-1933" },
+                { no: 3, nama: "Johanis Pele", tahun: "1933-1950" },
+                { no: 4, nama: "Emil Umboh", tahun: "1950-1951" },
+                { no: 5, nama: "Luther Kaligis", tahun: "1951-1965" },
+                { no: 6, nama: "Piet Rugian", tahun: "1965-1971" },
+                { no: 7, nama: "Eduward Umboh", tahun: "1971-1974" },
+                { no: 8, nama: "Yes Somba", tahun: "1974-1976" },
+                { no: 9, nama: "Dagober Somba", tahun: "1976-1981" },
+                { no: 10, nama: "M. Ch. Somba", tahun: "1981-1989" },
+                { no: 11, nama: "Like Kindangen", tahun: "1989 & 1990" },
+                { no: 12, nama: "Yosep Umboh", tahun: "1989-1990" },
+                { no: 13, nama: "Boy Umboh", tahun: "1990" },
+                { no: 14, nama: "Hien Tompoliu", tahun: "1990-1999" },
+                { no: 15, nama: "Royke J. Somba", tahun: "1999-2006" },
+                { no: 16, nama: "Adri Karuh", tahun: "2006-2012" },
+                { no: 17, nama: "Olce Berty Tompoliu", tahun: "2012 - Sekarang", current: true }
+            ]
+        };
+
+        // Active global data reference
+        let activeData = DEFAULT_DATA;
+
+        // Load data from localStorage
+        function loadData() {
+            try {
+                const stored = localStorage.getItem('desa_kalait_data');
+                if (stored) {
+                    activeData = JSON.parse(stored);
+                } else {
+                    activeData = JSON.parse(JSON.stringify(DEFAULT_DATA)); // deep copy
+                    localStorage.setItem('desa_kalait_data', JSON.stringify(activeData));
+                }
+            } catch (e) {
+                console.error("Gagal memuat data dari localStorage", e);
+            }
+        }
+
+        // Show toast alert
+        function showToast(message, isSuccess = true) {
+            const toast = document.getElementById('actionToast');
+            const messageEl = document.getElementById('toastMessage');
+            const icon = toast.querySelector('i');
+            
+            messageEl.textContent = message;
+            
+            if (isSuccess) {
+                icon.className = 'fas fa-check-circle text-success fs-4';
+            } else {
+                icon.className = 'fas fa-exclamation-circle text-danger fs-4';
+            }
+            
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Tab Navigation click handlers
+        const menuItems = document.querySelectorAll('.menu-item');
+        const panels = document.querySelectorAll('.tab-panel');
+        const panelTitle = document.getElementById('panel-title');
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetPanelId = item.getAttribute('data-target');
+                
+                // Toggle active menu class
+                menuItems.forEach(m => m.classList.remove('active'));
+                item.classList.add('active');
+                
+                // Toggle active panel visibility
+                panels.forEach(p => p.classList.remove('active'));
+                document.getElementById(targetPanelId).classList.add('active');
+                
+                // Set page title
+                panelTitle.textContent = item.querySelector('a').textContent.trim();
+                
+                // Special actions upon opening tabs
+                if (targetPanelId === 'panel-export') {
+                    document.getElementById('json-export-area').value = JSON.stringify(activeData, null, 4);
+                }
+            });
+        });
+
+        // ==========================================
+        // 1. DATA KEPENDUDUKAN & DEMOGRAFI TAB
+        // ==========================================
+        const formDemografi = document.getElementById('form-demografi');
+        
+        // Populate inputs
+        function initDemografiForm() {
+            for (let i = 1; i <= 4; i++) {
+                document.getElementById(`jaga-laki-${i}`).value = activeData.demografi.jaga.laki[i - 1];
+                document.getElementById(`jaga-perempuan-${i}`).value = activeData.demografi.jaga.perempuan[i - 1];
+            }
+            calculateDemografiTotals();
+        }
+
+        // Calculate totals on input changes
+        function calculateDemografiTotals() {
+            let totalLaki = 0;
+            let totalPerempuan = 0;
+            
+            for (let i = 1; i <= 4; i++) {
+                const lVal = parseInt(document.getElementById(`jaga-laki-${i}`).value) || 0;
+                const pVal = parseInt(document.getElementById(`jaga-perempuan-${i}`).value) || 0;
+                totalLaki += lVal;
+                totalPerempuan += pVal;
+            }
+            
+            const totalJiwa = totalLaki + totalPerempuan;
+            
+            document.getElementById('calc-total-laki').textContent = `${totalLaki} Orang`;
+            document.getElementById('calc-total-perempuan').textContent = `${totalPerempuan} Orang`;
+            document.getElementById('calc-total-jiwa').textContent = `${totalJiwa} Orang`;
+
+            return { totalLaki, totalPerempuan, totalJiwa };
+        }
+
+        // Add event listeners to input changes
+        for (let i = 1; i <= 4; i++) {
+            document.getElementById(`jaga-laki-${i}`).addEventListener('input', calculateDemografiTotals);
+            document.getElementById(`jaga-perempuan-${i}`).addEventListener('input', calculateDemografiTotals);
+        }
+
+        // Save Demografi Form
+        formDemografi.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const calc = calculateDemografiTotals();
+            
+            activeData.demografi.totalJiwa = calc.totalJiwa;
+            activeData.demografi.laki = calc.totalLaki;
+            activeData.demografi.perempuan = calc.totalPerempuan;
+            
+            for (let i = 1; i <= 4; i++) {
+                const lVal = parseInt(document.getElementById(`jaga-laki-${i}`).value) || 0;
+                const pVal = parseInt(document.getElementById(`jaga-perempuan-${i}`).value) || 0;
+                activeData.demografi.jaga.laki[i - 1] = lVal;
+                activeData.demografi.jaga.perempuan[i - 1] = pVal;
+                activeData.demografi.jaga.total[i - 1] = lVal + pVal;
+            }
+            
+            localStorage.setItem('desa_kalait_data', JSON.stringify(activeData));
+            document.getElementById('overview-total').textContent = activeData.demografi.totalJiwa;
+            showToast("Data kependudukan berhasil disimpan!");
+        });
+
+
+        // ==========================================
+        // 2. PEKERJAAN & PROFESI TAB
+        // ==========================================
+        const formPekerjaan = document.getElementById('form-pekerjaan');
+        
+        function initPekerjaanForm() {
+            document.getElementById('input-pekerjaan-petani').value = activeData.pekerjaan.petani;
+            document.getElementById('input-pekerjaan-wiraswasta').value = activeData.pekerjaan.wiraswasta;
+            document.getElementById('input-pekerjaan-pelajar').value = activeData.pekerjaan.pelajar;
+            document.getElementById('input-pekerjaan-pns').value = activeData.pekerjaan.pns;
+            document.getElementById('input-pekerjaan-buruh').value = activeData.pekerjaan.buruh;
+        }
+
+        formPekerjaan.addEventListener('submit', (e) => {
+            e.preventDefault();
+            activeData.pekerjaan.petani = parseInt(document.getElementById('input-pekerjaan-petani').value) || 0;
+            activeData.pekerjaan.wiraswasta = parseInt(document.getElementById('input-pekerjaan-wiraswasta').value) || 0;
+            activeData.pekerjaan.pelajar = parseInt(document.getElementById('input-pekerjaan-pelajar').value) || 0;
+            activeData.pekerjaan.pns = parseInt(document.getElementById('input-pekerjaan-pns').value) || 0;
+            activeData.pekerjaan.buruh = parseInt(document.getElementById('input-pekerjaan-buruh').value) || 0;
+            
+            localStorage.setItem('desa_kalait_data', JSON.stringify(activeData));
+            showToast("Statistik profesi berhasil disimpan!");
+        });
+
+
+        // ==========================================
+        // 3. PERANGKAT DESA TAB
+        // ==========================================
+        const formPerangkat = document.getElementById('form-perangkat');
+        
+        function initPerangkatForm() {
+            document.getElementById('input-perangkat-hukumtua').value = activeData.perangkat.hukumtua;
+            document.getElementById('input-perangkat-sekdes').value = activeData.perangkat.sekdes;
+            document.getElementById('input-perangkat-bendahara').value = activeData.perangkat.bendahara;
+            document.getElementById('input-perangkat-kaur').value = activeData.perangkat.kaur;
+            document.getElementById('input-jaga-1').value = activeData.perangkat.jaga1;
+            document.getElementById('input-jaga-2').value = activeData.perangkat.jaga2;
+            document.getElementById('input-jaga-3').value = activeData.perangkat.jaga3;
+            document.getElementById('input-jaga-4').value = activeData.perangkat.jaga4;
+        }
+
+        formPerangkat.addEventListener('submit', (e) => {
+            e.preventDefault();
+            activeData.perangkat.hukumtua = document.getElementById('input-perangkat-hukumtua').value.trim();
+            activeData.perangkat.sekdes = document.getElementById('input-perangkat-sekdes').value.trim();
+            activeData.perangkat.bendahara = document.getElementById('input-perangkat-bendahara').value.trim();
+            activeData.perangkat.kaur = document.getElementById('input-perangkat-kaur').value.trim();
+            activeData.perangkat.jaga1 = document.getElementById('input-jaga-1').value.trim();
+            activeData.perangkat.jaga2 = document.getElementById('input-jaga-2').value.trim();
+            activeData.perangkat.jaga3 = document.getElementById('input-jaga-3').value.trim();
+            activeData.perangkat.jaga4 = document.getElementById('input-jaga-4').value.trim();
+            
+            localStorage.setItem('desa_kalait_data', JSON.stringify(activeData));
+            showToast("Data perangkat pemerintahan berhasil disimpan!");
+        });
+
+
+        // ==========================================
+        // 4. SILSILAH HUKUM TUA TAB (CRUD)
+        // ==========================================
+        const silsilahTableBody = document.getElementById('silsilah-table-body');
+        const formSilsilah = document.getElementById('form-silsilah');
+        const inputSilsilahIndex = document.getElementById('input-silsilah-index');
+        const inputSilsilahNo = document.getElementById('input-silsilah-no');
+        const inputSilsilahNama = document.getElementById('input-silsilah-nama');
+        const inputSilsilahTahun = document.getElementById('input-silsilah-tahun');
+        const inputSilsilahCurrent = document.getElementById('input-silsilah-current');
+        const formSilsilahTitle = document.getElementById('form-silsilah-title');
+        const btnSaveSilsilah = document.getElementById('btn-save-silsilah');
+        const btnCancelSilsilah = document.getElementById('btn-cancel-silsilah');
+
+        // Render Silsilah Table
+        function renderSilsilahTable() {
+            silsilahTableBody.innerHTML = '';
+            
+            const list = activeData.silsilah || [];
+            
+            // Sort by number
+            list.sort((a, b) => (parseInt(a.no) || 0) - (parseInt(b.no) || 0));
+            
+            document.getElementById('badge-total-silsilah').textContent = `${list.length} Orang`;
+            document.getElementById('overview-hukumtua-count').textContent = list.length;
+            
+            list.forEach((item, index) => {
+                const tr = document.createElement('tr');
+                
+                // Status badge
+                const currentBadge = item.current ? ' <span class="badge-status ms-2"><i class="fas fa-check me-1"></i>Menjabat</span>' : '';
+                
+                tr.innerHTML = `
+                    <td class="ps-4 fw-bold text-muted">${item.no || (index + 1)}</td>
+                    <td class="fw-bold">${item.nama}${currentBadge}</td>
+                    <td>${item.tahun}</td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-outline-success me-1 btn-edit-silsilah" data-index="${index}"><i class="fas fa-edit"></i></button>
+                        <button type="button" class="btn btn-sm btn-outline-danger btn-delete-silsilah" data-index="${index}"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+                `;
+                silsilahTableBody.appendChild(tr);
+            });
+
+            // Re-attach listeners to action buttons
+            document.querySelectorAll('.btn-edit-silsilah').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const idx = btn.getAttribute('data-index');
+                    editSilsilah(idx);
+                });
+            });
+
+            document.querySelectorAll('.btn-delete-silsilah').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const idx = btn.getAttribute('data-index');
+                    if (confirm("Apakah Anda yakin ingin menghapus silsilah Hukum Tua ini?")) {
+                        deleteSilsilah(idx);
+                    }
+                });
+            });
+        }
+
+        // Reset Silsilah Form
+        function resetSilsilahForm() {
+            formSilsilah.reset();
+            inputSilsilahIndex.value = "-1";
+            formSilsilahTitle.innerHTML = '<i class="fas fa-plus-circle me-2"></i>Tambah Silsilah';
+            btnSaveSilsilah.innerHTML = '<i class="fas fa-plus me-2"></i>Tambahkan';
+            btnCancelSilsilah.style.display = 'none';
+            
+            // Propose next sequence number
+            const nextNo = (activeData.silsilah.length > 0) ? (Math.max(...activeData.silsilah.map(s => parseInt(s.no) || 0)) + 1) : 1;
+            inputSilsilahNo.value = nextNo;
+        }
+
+        // Cancel editing silsilah
+        btnCancelSilsilah.addEventListener('click', resetSilsilahForm);
+
+        // Edit Silsilah
+        function editSilsilah(index) {
+            const item = activeData.silsilah[index];
+            inputSilsilahIndex.value = index;
+            inputSilsilahNo.value = item.no || "";
+            inputSilsilahNama.value = item.nama;
+            inputSilsilahTahun.value = item.tahun;
+            inputSilsilahCurrent.checked = !!item.current;
+            
+            formSilsilahTitle.innerHTML = '<i class="fas fa-edit me-2"></i>Edit Silsilah';
+            btnSaveSilsilah.innerHTML = '<i class="fas fa-save me-2"></i>Simpan Edit';
+            btnCancelSilsilah.style.display = 'block';
+        }
+
+        // Delete Silsilah
+        function deleteSilsilah(index) {
+            activeData.silsilah.splice(index, 1);
+            localStorage.setItem('desa_kalait_data', JSON.stringify(activeData));
+            renderSilsilahTable();
+            resetSilsilahForm();
+            showToast("Silsilah Hukum Tua berhasil dihapus!");
+        }
+
+        // Save Silsilah Form (Add / Edit)
+        formSilsilah.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const index = parseInt(inputSilsilahIndex.value);
+            const num = parseInt(inputSilsilahNo.value) || 1;
+            const name = inputSilsilahNama.value.trim();
+            const years = inputSilsilahTahun.value.trim();
+            const isCurr = inputSilsilahCurrent.checked;
+
+            // If this item is set to current, clear all other current flags in the list
+            if (isCurr) {
+                activeData.silsilah.forEach(s => delete s.current);
+            }
+
+            const itemData = { no: num, nama: name, tahun: years };
+            if (isCurr) {
+                itemData.current = true;
+            }
+
+            if (index === -1) {
+                // Add new item
+                activeData.silsilah.push(itemData);
+                showToast("Silsilah Hukum Tua berhasil ditambahkan!");
+            } else {
+                // Edit existing item
+                activeData.silsilah[index] = itemData;
+                showToast("Perubahan silsilah berhasil disimpan!");
+            }
+
+            localStorage.setItem('desa_kalait_data', JSON.stringify(activeData));
+            renderSilsilahTable();
+            resetSilsilahForm();
+        });
+
+
+        // ==========================================
+        // 5. DATABASE & RESET TAB
+        // ==========================================
+        // Copy JSON Button
+        document.getElementById('btn-copy-json').addEventListener('click', () => {
+            const textarea = document.getElementById('json-export-area');
+            textarea.select();
+            document.execCommand('copy');
+            showToast("JSON disalin ke clipboard!");
+        });
+
+        // Reset Data Button
+        document.getElementById('btn-reset-data').addEventListener('click', () => {
+            if (confirm("PERINGATAN! Seluruh perubahan data Anda akan dihapus dan kembali ke pengaturan awal pabrik. Apakah Anda yakin?")) {
+                localStorage.removeItem('desa_kalait_data');
+                loadData();
+                initAllForms();
+                showToast("Seluruh data berhasil di-reset ke bawaan awal!");
+            }
+        });
+
+
+        // ==========================================
+        // INITIALIZATION
+        // ==========================================
+        function initAllForms() {
+            // Stats & Forms loading
+            document.getElementById('overview-total').textContent = activeData.demografi.totalJiwa;
+            
+            initDemografiForm();
+            initPekerjaanForm();
+            initPerangkatForm();
+            renderSilsilahTable();
+            resetSilsilahForm();
+        }
+
+        // Initialize script
+        loadData();
+        initAllForms();
+    </script>
+</body>
+
+</html>
